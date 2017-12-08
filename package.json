@@ -6,11 +6,22 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-watch": "^4.3.11",
+    "gulp-uglify": "^3.0.0",
+    "gulp-sourcemaps": "^2.6.1",
+    "gulp-rigger": "^0.5.8",
+    "gulp-rename": "^1.2.2",
+    "gulp-less": "^3.3.2",
+    "gulp-cssmin": "^0.2.0",
+    "browser-sync": "^2.18.13"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/TemaMadest/site-cube.git"
   },
-  "author": "madestTemaMadest",
+  "author": "TemaMadest",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/TemaMadest/site-cube/issues"
@@ -18,6 +29,13 @@
   "homepage": "https://github.com/TemaMadest/site-cube#readme",
   "devDependencies": {
     "browser-sync": "^2.18.13",
-    "gulp": "^3.9.1"
+    "gulp": "^3.9.1",
+    "gulp-watch": "^4.3.11",
+    "gulp-uglify": "^3.0.0",
+    "gulp-sourcemaps": "^2.6.1",
+    "gulp-rigger": "^0.5.8",
+    "gulp-rename": "^1.2.2",
+    "gulp-less": "^3.3.2",
+    "gulp-cssmin": "^0.2.0"
   }
 }
