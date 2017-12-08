@@ -59,16 +59,6 @@ gulp.task('watcher', function(){
 	gulp.watch(path.watch.css, ['less']);
     gulp.watch(path.watch.js, ['js']);
     gulp.watch('index.html', ['index']);
-
-	/*watch('index.html', function(){
-		gulp.start('index');
-	});
-    watch(path.watch.css, function() {
-        gulp.start('less');
-    });
-    watch(path.watch.js, function() {
-        gulp.start('js');
-    });*/
 });
 
 gulp.task('js', function () {
@@ -92,8 +82,8 @@ gulp.task('less', wrapPipe(function(success, error) {
 		.pipe(cssmin())
 		.pipe(sourcemaps.write())
 		.pipe(rename({suffix: '.min'}))
-		.pipe(gulp.dest(path.dist.css));
-		gulp.pipe(reload({stream: true}));
+		.pipe(gulp.dest(path.dist.css))
+		.pipe(reload({stream: true}));
 }));
 
 gulp.task('index', function(){
