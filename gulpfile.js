@@ -55,16 +55,20 @@ function wrapPipe(taskFn) {
 
 gulp.task('browserSync', function () {browserSync(ServerConfig);});
 
-gulp.task('watch', function(){
-	watch('index.html', function(){
+gulp.task('watcher', function(){
+	gulp.watch(path.watch.css, ['less']);
+    gulp.watch(path.watch.js, ['js']);
+    gulp.watch('index.html', ['index']);
+
+	/*watch('index.html', function(){
 		gulp.start('index');
 	});
-    watch(path.watch.css, function(event, cb) {
+    watch(path.watch.css, function() {
         gulp.start('less');
     });
-    watch(path.watch.js, function(event, cb) {
+    watch(path.watch.js, function() {
         gulp.start('js');
-    });
+    });*/
 });
 
 gulp.task('js', function () {
@@ -98,4 +102,4 @@ gulp.task('index', function(){
 		.pipe(reload({stream:true}));
 });
 
-gulp.task('default', ["watch", "browserSync"]);
+gulp.task('default', ["less", "js", "watcher", "browserSync"]);
