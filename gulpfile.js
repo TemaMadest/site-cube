@@ -38,21 +38,6 @@ var ServerConfig = {
 	logPrefix: "madest"
 };
 
-function wrapPipe(taskFn) {
-  return function(done) {
-    var onSuccess = function() {
-      done();
-    };
-    var onError = function(err) {
-      done(err);
-    }
-    var outStream = taskFn(onSuccess, onError);
-    if(outStream && typeof outStream.on === 'function') {
-      outStream.on('end', onSuccess);
-    }
-  }
-};
-
 gulp.task('browserSync', function () {browserSync(ServerConfig);});
 
 gulp.task('watcher', function(){
@@ -73,7 +58,7 @@ gulp.task('js', function () {
 		.pipe(reload({stream: true}));
 });
 
-gulp.task('less', wrapPipe(function(success, error) {
+gulp.task('less', function() {
 	return gulp
 		.src(path.src.less)
 		.pipe(rigger())	
@@ -84,7 +69,7 @@ gulp.task('less', wrapPipe(function(success, error) {
 		.pipe(rename({suffix: '.min'}))
 		.pipe(gulp.dest(path.dist.css))
 		.pipe(reload({stream: true}));
-}));
+});
 
 gulp.task('index', function(){
 	return gulp
