@@ -37,11 +37,17 @@ $(function() {
             if (index < getIndex($(this))) {
                 busy = true;
                 rotateToright();
-                index = getIndex($(this));
+                hrefs = active.attr('href');
+                getContent(hrefs, current);
+                freed();
+                index = getIndex($(this));                
             }
             if (index > getIndex($(this))) {
                 busy = true;
                 rotateToleft();
+                hrefs = active.attr('href');
+                getContent(hrefs, current);
+                freed();
                 index = getIndex($(this));
             }
         }        
@@ -77,13 +83,16 @@ $(function() {
     var leftHandler = function() {
         if (!busy){            
             var prev = active.parent().prev('li').children('a');
-            if (prev) {
+            if (prev.length) {
                 if (index > 0) {
                     busy = true;
                     setActiveButton(prev);
                     index = getIndex(active, '');
                     rotateToleft();
-                    location.hash = active.attr('href');
+                    hrefs = active.attr('href');
+                    getContent(hrefs, current);
+                    freed();
+                    location.hash = active.attr('href');                    
                 }
             }
         }        
@@ -92,12 +101,15 @@ $(function() {
     var rightHandler = function() {
         if (!busy){
             var next = active.parent().next('li').children('a');
-            if (next) {
+            if (next.length) {
                 if (index < 6) {
                     busy = true;
                     setActiveButton(next);
                     index = getIndex(active, '');
                     rotateToright();
+                    hrefs = active.attr('href');
+                    getContent(hrefs, current);
+                    freed();
                     location.hash = active.attr('href');
                 }
             }
@@ -126,9 +138,6 @@ $(function() {
         } else {
             current = grid[3];
         }
-        hrefs = active.attr('href');
-        getContent(hrefs, current);
-        freed();
     };
 
     var rotateToright = function() {
@@ -141,20 +150,22 @@ $(function() {
         } else {
             current = grid[0];
         }
-        hrefs = active.attr('href');
-        getContent(hrefs, current);
-        freed();
     };
 
-    var getContent = function(url, orientation) {
-        var inf = {};
-        inf.url = url;
-        $(orientation).children('.gr1_1').children('.inner').empty();
-        $(orientation).children('.gr1_1').children('.inner').load("/src/pages/" + url + ".html");
+    var getContent = function(src, orientation) {
+        var url = "";
+        if(src){
+            url = src;
+            $(orientation).children('.gr1_1').children('.inner').empty();
+            $(orientation).children('.gr1_1').children('.inner').load("/src/pages/" + src + ".html");
+        }else{
+            url = "404";
+            rotateToright();
+        }
         /*$.ajax({
-            url: 'http://www.masterr-balkonov.ru/ajax-request',
+            url: "sitename.ru",
             type: 'post',
-            data: inf
+            data: url
         })
         .done(function(res){
             $(orientation).children('.gr1_1').children('.inner').empty();
@@ -165,7 +176,7 @@ $(function() {
         .error(function(err){
             console.log(err);
             throw(err);
-        });*/
+        });*/     
     };
 
     var parse = function() {
@@ -193,8 +204,6 @@ $(function() {
                 break;
             }
         }
-        //href = "/src/pages/"+href+".html";
-        //return href;
     };
 
     var init = function(w) {
