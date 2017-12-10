@@ -102,7 +102,7 @@ $(function() {
         if (!busy){
             var next = active.parent().next('li').children('a');
             if (next.length) {
-                if (index < 6) {
+                if (index < $('nav').find('li').length) {
                     busy = true;
                     setActiveButton(next);
                     index = getIndex(active, '');
