@@ -149,8 +149,8 @@ $(function() {
         var url = "";
         if(src){
             url = src;
-            $(orientation).children('.gr1_1').children('.inner').empty();
-            $(orientation).children('.gr1_1').children('.inner').load("/src/pages/" + src + ".html");
+            $(orientation).children('.gr1_1').find('.inner').empty();
+            $(orientation).children('.gr1_1').find('.inner').load("/src/pages/" + src + ".html");
         }else{
             url = "404";
             rotateToright();
