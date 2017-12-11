@@ -2,11 +2,12 @@ $(function() {
     var vp_width = $('#wrapper').width();
     var angle = 0;
     var index = 0;
-    var animateDuration = 1500;
+    var animateDuration = 1500; //задержка клика в пункте меню после поворота
     var open_close = false;
     var d = document;
     var w = window;
     var hrefs = '';
+    var perspective = 2000;
     var grid = [
         $('.gr1'),
         $('.gr2'),
@@ -123,7 +124,7 @@ $(function() {
     var rotateToleft = function() {
         angle += 90;
         $('section').css({
-            transform: 'perspective(900px) translate3d(0px,0px,' + vp_width / -2 + 'px) rotate3d(0,1,0,' + angle + 'deg)'
+            transform: 'perspective(' + perspective + 'px) translate3d(0px,0px,' + vp_width / -2 + 'px) rotate3d(0,1,0,' + angle + 'deg)'
         });
         if (current.index() > 0) {
             current = grid[current.index() - 1];
@@ -135,7 +136,7 @@ $(function() {
     var rotateToright = function() {
         angle -= 90;
         $('section').css({
-            transform: 'perspective(900px) translate3d(0px,0px,' + vp_width / -2 + 'px) rotate3d(0,1,0,' + angle + 'deg)'
+            transform: 'perspective(' + perspective + 'px) translate3d(0px,0px,' + vp_width / -2 + 'px) rotate3d(0,1,0,' + angle + 'deg)'
         });
         if (current.index() < 3) {
             current = grid[current.index() + 1];
@@ -213,7 +214,7 @@ $(function() {
 
     var Custom_Resize = function(ww) {
         $('section').css({
-            transform: 'perspective(900px) translate3d(0px,0px,' + ww / -2 + 'px) rotate3d(0,1,0,' + angle + 'deg)',
+            transform: 'perspective(' + perspective + 'px) translate3d(0px,0px,' + ww / -2 + 'px) rotate3d(0,1,0,' + angle + 'deg)',
             'max-width': ww,
         });
         $('.gr1').css({

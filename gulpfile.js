@@ -10,21 +10,25 @@ var gulp = require('gulp'),
 		cssmin = require('gulp-cssmin'),
 		LessPluginAutoPrefix = require('less-plugin-autoprefix'),
 		autoprefix = new LessPluginAutoPrefix({browsers: ["last 2 versions"]}),
+		htmlmin = require('gulp-htmlmin'),
 		browserSync = require("browser-sync"),
 		reload = browserSync.reload;
 
 var path = {
     dist: { 
         js: 'dist/',
-        css: 'dist/'
+        css: 'dist/',
+        html: ''
     },
     src: {
         js: 'src/build.js',
-        less: 'src/build.less'
+        less: 'src/build.less',
+        html: 'src/index.html'
     },
     watch: { 
         js: 'src/**/*.js',
-        css: 'src/**/*.less'
+        css: 'src/**/*.less',
+        html: 'src/index.html'
     }
 };
 
@@ -45,7 +49,7 @@ gulp.task('browserSync', function () {browserSync(ServerConfig);});
 gulp.task('watcher', function(){
 	gulp.watch(path.watch.css, ['less']);
     gulp.watch(path.watch.js, ['js']);
-    gulp.watch('index.html', ['index']);
+    gulp.watch(path.watch.html, ['html']);
 });
 
 gulp.task('js', function () {
@@ -73,9 +77,11 @@ gulp.task('less', function() {
 		.pipe(reload({stream: true}));
 });
 
-gulp.task('index', function(){
+gulp.task('html', function(){
 	return gulp
-		.src('index.html')
+		.src(path.src.html)
+		.pipe(htmlmin({collapseWhitespace: true}))
+		.pipe(gulp.dest(path.dist.html))
 		.pipe(reload({stream:true}));
 });
 
