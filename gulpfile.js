@@ -8,6 +8,8 @@ var gulp = require('gulp'),
 		rename = require('gulp-rename'),
 		rigger = require('gulp-rigger'),
 		cssmin = require('gulp-cssmin'),
+		LessPluginAutoPrefix = require('less-plugin-autoprefix'),
+		autoprefix = new LessPluginAutoPrefix({browsers: ["last 2 versions"]}),
 		browserSync = require("browser-sync"),
 		reload = browserSync.reload;
 
@@ -63,7 +65,7 @@ gulp.task('less', function() {
 		.src(path.src.less)
 		.pipe(rigger())	
 		.pipe(sourcemaps.init())
-		.pipe(less())
+		.pipe(less({plugins: [autoprefix]}))
 		.pipe(cssmin())
 		.pipe(sourcemaps.write())
 		.pipe(rename({suffix: '.min'}))

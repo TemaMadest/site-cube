@@ -6,7 +6,6 @@ $(function() {
     var open_close = false;
     var d = document;
     var w = window;
-    var windowWidth = $(window).width();
     var hrefs = '';
     var grid = [
         $('.gr1'),
@@ -67,13 +66,6 @@ $(function() {
             });
         }
     };
-
-    var closeLogo = function() {
-        setTimeout(function() {
-            $('.logo').addClass('close_logo');
-        }, 2000);
-    };
-
 
     var active_index = function() {
         index = getIndex(active, '');
@@ -179,7 +171,7 @@ $(function() {
         });*/     
     };
 
-    var parse = function() {
+    var parses = function() {
         var loc = location.href;
         var i = 0;
         var pos, href = "";
@@ -206,10 +198,9 @@ $(function() {
         }
     };
 
-    var init = function(w) {
-        if (w < 1200) {
-            Custom_Resize(w);
-        }
+    var init = function() {
+        vp_width = $(window).width();
+        Custom_Resize(vp_width);
     };
 
     var ResizeWindow = function() {
@@ -239,15 +230,14 @@ $(function() {
         });
     };
 
-    $(d).on('ready', closeLogo);
     $(w).on('resize', ResizeWindow);
     $('.nav-panel').on('click', selectMenuItem);
     $('.mobile-link').on('click', selectMenuBtn);
     $('.left').on('click', leftHandler);
     $('.right').on('click', rightHandler);
 
-    init(windowWidth);
-    parse();
+    init();
+    parses();
     active_index();
     getContent(active.attr('href'), current);
 });
