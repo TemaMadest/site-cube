@@ -16,16 +16,40 @@
 }
 @font-face {
   font-family: 'robotolight';
-  src: url('../fonts/Roboto-Light.eot');
+  src: url('../src/fonts/Roboto-Light.eot');
   src: url('../src/fonts/roboto/Roboto-Light.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('../src/fonts/roboto/Roboto-Light.svg#robotolight') format('svg'), /* Legacy iOS */ url('../src/fonts/roboto/Roboto-Light.woff?4') format('woff'), /* Modern Browsers */ url('../src/fonts/roboto/Roboto-Light.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 /******************************************************/
+@font-face {
+    font-family: "GothamProBlack";
+    src: url("../src/fonts/gothampro/GothamProBlack.eot");
+    src: url("../src/fonts/gothampro/GothamProBlack.eot?#iefix")format("embedded-opentype"),
+    url("../src/fonts/gothampro/GothamProBlack.woff") format("woff"),
+    url("../src/fonts/gothampro/GothamProBlack.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+@font-face {
+    font-family: "GothamProLight";
+    src: url("../src/fonts/gothampro/GothamProLight.eot");
+    src: url("../src/fonts/gothampro/GothamProLight.eot?#iefix")format("embedded-opentype"),
+    url("../src/fonts/gothampro/GothamProLight.woff") format("woff"),
+    url("../src/fonts/gothampro/GothamProLight.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+/******************************************************/
+
+
+
 
 @yellow: #FDF379;
 @bgcolor: #eeefea;
 @fontcolor: #5f6a79;
+@red: #F44336;
+@blue: #0E9AA7;
 
 
 
@@ -89,6 +113,8 @@ header nav ul li a{
     font-family: robotoLight;
     color: @fontcolor;
     z-index: 1;
+    text-transform: uppercase;
+    font-size: .9rem;
 
     &:before{
         content: "";
@@ -317,12 +343,41 @@ section > div{
     min-height:500px; 
     height: 100%;
     overflow-y: auto;
+    padding-bottom: 50px;
+
+    &.load{
+        &:before{
+            content: '';
+            position: fixed;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            background: #fff;
+            z-index: 999;
+            display: block;
+            pointer-events: none;
+            transition: .5s ease;
+            opacity: 1;
+        }
+    }
+
+    &.loaded{
+        &:before{
+            content: '';
+            opacity: 0;
+            transition: .5s ease;
+        }
+    }
 }
 .inner{
     max-width:1000px;
     margin:0 auto;
-    padding: 5rem 0 1rem;
+    padding: 5rem 0 0;
     background: transparent;
+    font-family: GothamProLight, sans-serif;
+    color: #000;
+    line-height: 1.5rem;
 }
 
 .next{
@@ -330,7 +385,7 @@ section > div{
     width:50px;
     height:50px;
     background: transparent;
-    border: 3px solid #0E9AA7;
+    border: 3px solid @red;
     -webkit-transform: translateY(-50%);
     -moz-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
@@ -356,7 +411,7 @@ section > div{
 .next i{
     font-size: 22px;
     margin-top: 25%;
-    color: #0E9AA7;
+    color: @red;
     -webkit-transition:all .5s ease;
     transition:all 1s ease;
 }
@@ -394,7 +449,7 @@ section > div{
 
 
 /****FOOTER*****/
-footer{
+/*footer{
     position: fixed;
     bottom: 0;
     left: 0;
@@ -402,7 +457,21 @@ footer{
     width:100%;
     background: @bgcolor;
 
-}
+    .wrap{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100%;
+        justify-content: center;
+        font-size: .9rem;
+        letter-spacing: .05em;
+        font-family: robotoLight;
+
+        p{
+            margin: 0;
+        }
+    }
+}*/
 
 
 /******************************************************************************************/

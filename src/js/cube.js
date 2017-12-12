@@ -15,12 +15,29 @@ $(function() {
         $('.gr4')
     ];
     var busy = false;
+    var wait = false;
     var active = $('nav').find('.active');
     var current = grid[0];
+    var scroller = null;
+
+
+
+
+
+
+
+
+
+    /*******************Methods******************/
 
     var freed = function(){
-        setTimeout(function(){
+        setTimeout(() => {
             busy = false;
+            if(!wait){
+                wait = true;
+            }else{
+                closeLoader();
+            }
         }, animateDuration);
     };
 
@@ -38,16 +55,14 @@ $(function() {
                 busy = true;
                 rotateToright();
                 hrefs = active.attr('href');
-                getContent(hrefs, current);
-                freed();
+                getContent(hrefs);
                 index = getIndex($(this));                
             }
             if (index > getIndex($(this))) {
                 busy = true;
                 rotateToleft();
                 hrefs = active.attr('href');
-                getContent(hrefs, current);
-                freed();
+                getContent(hrefs);
                 index = getIndex($(this));
             }
         }        
@@ -77,15 +92,14 @@ $(function() {
         if (!busy){            
             var prev = active.parent().prev('li').children('a');
             if (prev.length) {
-                if (index > 0) {
+                if (index > 0) { 
                     busy = true;
                     setActiveButton(prev);
                     index = getIndex(active, '');
                     rotateToleft();
                     hrefs = active.attr('href');
-                    getContent(hrefs, current);
-                    freed();
-                    location.hash = active.attr('href');                    
+                    getContent(hrefs);
+                    location.hash = active.attr('href');
                 }
             }
         }        
@@ -95,15 +109,14 @@ $(function() {
         if (!busy){
             var next = active.parent().next('li').children('a');
             if (next.length) {
-                if (index < $('nav').find('li').length) {
+                if (index < $('nav').find('li').length) {                    
                     busy = true;
                     setActiveButton(next);
                     index = getIndex(active, '');
                     rotateToright();
                     hrefs = active.attr('href');
-                    getContent(hrefs, current);
-                    freed();
-                    location.hash = active.attr('href');
+                    getContent(hrefs);
+                    location.hash = active.attr('href');                        
                 }
             }
         }
@@ -131,45 +144,65 @@ $(function() {
         } else {
             current = grid[3];
         }
+        freed();
     };
 
-    var rotateToright = function() {
+    var rotateToright = function() {        
+        $('section').css({transform: 'perspective(' + perspective + 'px) translate3d(0px,0px,' + vp_width / -1.5 + 'px) rotate3d(0,1,0,' + angle + 'deg)'});
         angle -= 90;
-        $('section').css({
-            transform: 'perspective(' + perspective + 'px) translate3d(0px,0px,' + vp_width / -2 + 'px) rotate3d(0,1,0,' + angle + 'deg)'
-        });
+        setTimeout(() => {
+            $('section').css({transform: 'perspective(' + perspective + 'px) translate3d(0px,0px,' + vp_width / -1.5 + 'px) rotate3d(0,1,0,' + angle + 'deg)'});
+        },1000);
+        setTimeout(() => {
+            $('section').css({transform: 'perspective(' + perspective + 'px) translate3d(0px,0px,' + vp_width / -2 + 'px) rotate3d(0,1,0,' + angle + 'deg)'});
+        },2600);
+
         if (current.index() < 3) {
             current = grid[current.index() + 1];
         } else {
             current = grid[0];
         }
+        freed();              
     };
 
-    var getContent = function(src, orientation) {
-        var url = "";
+    var getContent = function(src) {
         if(src){
-            url = src;
-            $(orientation).children('.gr1_1').find('.inner').empty();
-            $(orientation).children('.gr1_1').find('.inner').load("/src/pages/" + src + ".html");
-        }else{
-            url = "404";
-            rotateToright();
-        }
-        /*$.ajax({
-            url: "sitename.ru",
-            type: 'post',
-            data: url
+            $(current).find('.inner').empty();            
+            request(src);
+        }   
+    };
+
+    var request = function(url){
+        $.ajax({
+            url: "../src/pages/" + url + ".html",
+            data: url,
+            beforeSend: addLoader()
         })
-        .done(function(res){
-            $(orientation).children('.gr1_1').children('.inner').empty();
-            $(orientation).children('.gr1_1').children('.inner').append(res);
-            //$('.gr1_1').empty();
-            //$('.gr1_1').append(res);
+        .success(function(res){        
+            $(current).find('.inner').append(res);            
+            if(!wait && busy){
+                wait = true;
+            }else{
+                closeLoader();
+            }
         })
         .error(function(err){
             console.log(err);
-            throw(err);
-        });*/     
+        }); 
+    };
+
+    var addLoader = function(){
+        wait = false;
+        $('.gr1_1').removeClass('load');
+        $(current).find('.gr1_1').addClass('load');
+    };
+
+    var closeLoader = function(){
+        initScroller();
+        $(current).find('.gr1_1').addClass('loaded');
+        setTimeout(() => {
+            $(current).find('.gr1_1').removeClass('load loaded');
+        },500);
     };
 
     var parses = function() {
@@ -197,6 +230,11 @@ $(function() {
                 break;
             }
         }
+    };
+
+    var initScroller = function(){
+        if(scroller) scroller.destroy();
+        scroller = new PerfectScrollbar(current.find('.gr1_1')[0]);
     };
 
     var init = function() {
@@ -240,5 +278,5 @@ $(function() {
     init();
     parses();
     active_index();
-    getContent(active.attr('href'), current);
+    getContent(active.attr('href'));
 });

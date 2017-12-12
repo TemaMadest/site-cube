@@ -11,6 +11,7 @@ var gulp = require('gulp'),
 		LessPluginAutoPrefix = require('less-plugin-autoprefix'),
 		autoprefix = new LessPluginAutoPrefix({browsers: ["last 2 versions"]}),
 		htmlmin = require('gulp-htmlmin'),
+		babel = require('gulp-babel'),
 		browserSync = require("browser-sync"),
 		reload = browserSync.reload;
 
@@ -56,7 +57,10 @@ gulp.task('js', function () {
 	return gulp
 		.src(path.src.js)
 		.pipe(rigger())
-		.pipe(sourcemaps.init())	
+		.pipe(sourcemaps.init())
+		.pipe(babel({
+			presets: ['env']
+		}))
 		.pipe(uglify())
 		.pipe(sourcemaps.write())
 		.pipe(rename({suffix: '.min'}))

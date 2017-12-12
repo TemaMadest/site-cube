@@ -17,8 +17,11 @@
   },
   "homepage": "https://github.com/TemaMadest/site-cube#readme",
   "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
     "browser-sync": "^2.18.13",
     "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.0",
     "gulp-cssmin": "^0.2.0",
     "gulp-html": "^0.4.7",
     "gulp-htmlmin": "^3.0.0",
