@@ -50,6 +50,7 @@
 @fontcolor: #5f6a79;
 @red: #F44336;
 @blue: #0E9AA7;
+@orange: #E96A4C;
 
 
 
@@ -80,9 +81,10 @@ header{
     position:fixed;
     top:0;
     width:100%;
-    background: @bgcolor;
+    background: @red;
     z-index:999;
     height:60px;
+    box-shadow: 0px 0px 1px 1px #801d1d;
 }
 header:before{
     clear:both;
@@ -98,7 +100,7 @@ nav{
     width: 100%;
     top: 0;
     left: -100%;
-    background: @bgcolor;
+    background: @red;
     padding: 10px;
     padding-bottom:50px;
     transition:left 0.5s ease;
@@ -123,7 +125,7 @@ header nav ul{
             letter-spacing: .15em;
             position: relative;
             font-family: robotoRegular;
-            color: @fontcolor;
+            color: @bgcolor;
             z-index: 1;
             text-transform: uppercase;
             font-size: 1rem;
@@ -135,7 +137,8 @@ header nav ul{
                 height: 4px;
                 bottom: 5px;
                 left: -5px;
-                background: #FDF379;
+                /*background: rgba(253, 243, 121, 0.77);*/
+                background: @blue;
                 z-index: -1;
                 opacity: 0;
                 transition: 300ms cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -156,7 +159,7 @@ header nav ul{
                     height: 4px;
                     bottom: 5px;
                     left: -5px;
-                    background: #FDF379;
+                    background: @blue;
                     z-index: -1;
                     opacity: 1;
                 };
@@ -182,7 +185,7 @@ header nav ul{
     display: block;
     width: 100%;
     height: 5px;
-    background: @red;
+    background: @bgcolor;
     transition:all 0.3s ease;
 }
 .mobile-link:after{
@@ -192,7 +195,7 @@ header nav ul{
     display: block;
     width: 100%;
     height: 5px;
-    background: @red;
+    background: @bgcolor;
     transition:all 0.3s ease;
 }
 .close:before{
@@ -233,11 +236,11 @@ section{
     -o-transform-origin: center center;
     transform-origin: center center;
     
-    -webkit-transition: all 2.5s;
-    -moz-transition: all 2.5s;
-    -o-transition: all 2.5s;
-    -ms-transition: all 2.5s;
-    transition: all 2.5s;
+    -webkit-transition: all 2s;
+    -moz-transition: all 2s;
+    -o-transition: all 2s;
+    -ms-transition: all 2s;
+    transition: all 2s;
     
     /*медленно--быстро--медленно*/
     -webkit-transition-duration:2s;
@@ -245,25 +248,18 @@ section{
     -ms-transition-duration:2s;
     -o-transition-duration:2s;
     transition-duration:2s;
-    -webkit-transition-timing-function: cubic-bezier(.75,.1,0,1);
+    /*-webkit-transition-timing-function: cubic-bezier(.75,.1,0,1);
     -moz-transition-timing-function: cubic-bezier(.75,.1,0,1);
     -ms-transition-timing-function: cubic-bezier(.75,.1,0,1);
     -o-transition-timing-function: cubic-bezier(.75,.1,0,1);
-    transition-timing-function: cubic-bezier(.75,.1,0,1);
-    
-    /*c возвратом*/
-    /*transition-duration:1.1s;
-    transition-timing-function: cubic-bezier(0,-0.07,.05,1.46);*/
-    
-    /*отскакивание*/
-    /*transition-duration:1.1s;
-    transition-timing-function: cubic-bezier(.63,1.64,0,.7);*/
+    transition-timing-function: cubic-bezier(.75,.1,0,1);*/
+    transition-timing-function: cubic-bezier(0.49, 0.02, 0, 1);
     
     position:relative;
     display:block;
     max-width: 320px;
     min-height:100%;
-    margin:0 auto;
+    margin:0 auto;    
 
     &.extrude{
         -webkit-transition-timing-function: ease;
@@ -276,6 +272,7 @@ section{
         -ms-transition-duration:.5s;
         -o-transition-duration:.5s;
         transition-duration:.5s;
+        will-change: transform;
     }
 }
 
@@ -286,6 +283,8 @@ section > div{
     height: 110%;
     padding-bottom:50px;
     overflow: hidden;
+    border-left: 1px solid #801d1d;
+    border-right: 1px solid #801d1d;
 }
 
 .gr1{

@@ -2,7 +2,7 @@
     let vp_width = $('#wrapper').width(),
         angle = 0,
         index = 0,
-        animateDuration = 3000, //задержка клика в пункте меню после поворота
+        animateDuration = 2700, //задержка клика в пункте меню после поворота
         open_close = false,
         d = document,
         w = window,
@@ -28,7 +28,7 @@
 
 
 
-    /*******************Methods******************/
+        /*******************Methods******************/
 
         freed = function(){
             setTimeout(() => {
@@ -145,6 +145,11 @@
         },
 
         rotateToleft = function() {
+            if (current.index() > 0) {
+                current = grid[current.index() - 1];
+            } else {
+                current = grid[3];
+            }
             wrapper.addClass('extrude');
             $('section').css({transform: 'perspective(' + perspective + 'px) translate3d(0px,0px,' + vp_width / -1.3 + 'px) rotate3d(0,1,0,' + angle + 'deg)'});
             angle += 90;
@@ -155,16 +160,19 @@
             setTimeout(() => {
                 wrapper.addClass('extrude');
                 $('section').css({transform: 'perspective(' + perspective + 'px) translate3d(0px,0px,' + vp_width / -2 + 'px) rotate3d(0,1,0,' + angle + 'deg)'});
-            },2500);
-            if (current.index() > 0) {
-                current = grid[current.index() - 1];
-            } else {
-                current = grid[3];
-            }
+                for(let i = 0; i < grid.length; i++){
+                    if(current !== grid[i]) $(grid[i]).find('.inner').empty();
+                }
+            },2300);            
             freed();
         },
 
         rotateToright = function() {
+            if (current.index() < 3) {
+                current = grid[current.index() + 1];
+            } else {
+                current = grid[0];
+            }
             wrapper.addClass('extrude');
             $('section').css({transform: 'perspective(' + perspective + 'px) translate3d(0px,0px,' + vp_width / -1.3 + 'px) rotate3d(0,1,0,' + angle + 'deg)'});        
             angle -= 90;
@@ -174,19 +182,16 @@
             },500);
             setTimeout(() => {
                 wrapper.addClass('extrude');
-                $('section').css({transform: 'perspective(' + perspective + 'px) translate3d(0px,0px,' + vp_width / -2 + 'px) rotate3d(0,1,0,' + angle + 'deg)'});            
-            },2500);
-            if (current.index() < 3) {
-                current = grid[current.index() + 1];
-            } else {
-                current = grid[0];
-            }
+                $('section').css({transform: 'perspective(' + perspective + 'px) translate3d(0px,0px,' + vp_width / -2 + 'px) rotate3d(0,1,0,' + angle + 'deg)'});
+                for(let i = 0; i < grid.length; i++){
+                    if(current !== grid[i]) $(grid[i]).find('.inner').empty();
+                }            
+            },2300);            
             freed();              
         },
 
         getContent = function(src) {
-            if(src){
-                $(current).find('.inner').empty();            
+            if(src){             
                 request(src);
             }   
         },
@@ -197,7 +202,7 @@
                 data: {url: url},
                 beforeSend: addLoader()
             })
-            .success(function(res){        
+            .success(function(res){                
                 $(current).find('.inner').append(res);            
                 if(!wait && busy){
                     wait = true;
