@@ -8,11 +8,13 @@
 		    this.width = 30;
 		    this.height = 30;
 		    this.page = params.page;
+		}
+		
+		generate(){
 
 		}
 
 		
-
 	}
 
 }());
