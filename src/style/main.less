@@ -50,8 +50,11 @@
 @fontcolor: #5f6a79;
 //@red: #F44336;
 @red: #dd5347;
-@blue: #0E9AA7;
+@blue: #382346;
 @orange: #E96A4C;
+@gray: #bdbdbd;
+@content-width: 1000px;
+
 
 
 
@@ -86,6 +89,15 @@ header{
     z-index:999;
     height:60px;
     box-shadow: 0px 0px 1px 1px #801d1d;
+
+    .header-wrap{
+        display: flex;
+        align-items: center;
+
+        img.logo{
+            height: 90%;
+        }
+    }
 }
 header:before{
     clear:both;
@@ -96,8 +108,6 @@ header:after{
 
 nav{
     position: absolute;
-    max-width: 1200px;
-    margin: 0 auto;
     width: 100%;
     top: 0;
     left: -100%;
@@ -134,21 +144,20 @@ header nav ul{
             &:before{
                 content: "";
                 position: absolute;
-                width: 115%;
+                width: 0;
                 height: 4px;
                 bottom: 5px;
-                left: -5px;
-                /*background: rgba(253, 243, 121, 0.77);*/
+                left: -5px;                
                 background: @blue;
                 z-index: -1;
-                opacity: 0;
+                opacity: 1;
                 transition: 300ms cubic-bezier(0.215, 0.61, 0.355, 1);
             };
 
             &:hover{
                 &:before{
                     transition: 300ms cubic-bezier(0.215, 0.61, 0.355, 1);
-                    opacity: 1;
+                    width: 115%;
                 };
             };
 
@@ -389,7 +398,7 @@ section > div{
     }
 }
 .inner{
-    max-width:1200px;
+    max-width:@content-width;
     margin:0 auto;
     padding: 5rem 1rem 0;
     background: transparent;
@@ -414,33 +423,40 @@ section > div{
     -webkit-transition:all .5s ease;
     transition:all 1s ease;
     cursor:pointer;
+
+    &.right{
+        top:50%;
+        right:1rem;
+    }
+
+    &.left{
+        left:1rem;
+        top:50%;
+    }
+
+    i{
+        font-size: 22px;
+        margin-top: 25%;
+        color: @red;
+        -webkit-transition:all .5s ease;
+        transition:all 1s ease;        
+    }
+
+    &:hover{
+        -webkit-transition:all .5s ease;
+        transition:all 1s ease;
+
+        i{
+            -webkit-transition:all .5s ease;
+            transition:all 1s ease;
+        }
+
+        &~.pagetitle{
+            display:block;
+        }
+    }
 }
-.next:hover{
-    -webkit-transition:all .5s ease;
-    transition:all 1s ease;
-}
-.next:hover i{
-    -webkit-transition:all .5s ease;
-    transition:all 1s ease;
-}
-.next:hover ~ .pagetitle{
-    display:block;
-}
-.next i{
-    font-size: 22px;
-    margin-top: 25%;
-    color: @red;
-    -webkit-transition:all .5s ease;
-    transition:all 1s ease;
-}
-.right{
-    top:50%;
-    right:1rem;
-}
-.left{
-    left:1rem;
-    top:50%;
-}
+
 
 /*.pagetitle{
     position: absolute;
