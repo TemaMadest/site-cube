@@ -19,6 +19,7 @@
         active = $('nav').find('.active'),
         current = grid[0],
         scroller = null,
+        jsScrollAnimate = null,
         wrapper = $('#wrapper'),
         mobileBtn = $('.mobile-link'),
         menuBtn = $('.nav-panel'),
@@ -259,6 +260,9 @@
         initScroller = () => {
             if(scroller) scroller.destroy();
             scroller = new PerfectScrollbar(current.find('.gr1_1')[0]);
+            if(jsScrollAnimate) jsScrollAnimate.destroy();
+            jsScrollAnimate = new Scroll(current);
+            jsScrollAnimate.init();
         },
 
         getWindowSize = () => {
@@ -290,6 +294,10 @@
             }
         },
 
+        loader = function() {
+            $('#wrapper').addClass('animateResize');
+        },
+
         Custom_Resize = function(ww) {
             $('section').css({
                 transform: 'perspective(' + perspective + 'px) translate3d(0px,0px,' + ww / -2 + 'px) rotate3d(0,1,0,' + angle + 'deg)',
@@ -315,6 +323,7 @@
     leftBtn.on('click', leftHandler);
     rightBtn.on('click', rightHandler);
     $(w).on('hashchange', changeHash);
+    $(w).on('load', loader);
 
     init();
 }());

@@ -48,12 +48,11 @@
 @yellow: #FDF379;
 @bgcolor: #eeefea;
 @fontcolor: #5f6a79;
-//@red: #F44336;
 @red: #dd5347;
 @blue: #382346;
 @orange: #E96A4C;
 @gray: #bdbdbd;
-@content-width: 1000px;
+@content-width: 1600px;
 
 
 
@@ -228,6 +227,18 @@ header nav ul{
 }
 
 section{
+
+    &.animateResize{
+        /*медленно--быстро--медленно*/
+        -webkit-transition-duration:2s;
+        -moz-transition-duration:2s;
+        -ms-transition-duration:2s;
+        -o-transition-duration:2s;
+        transition-duration:2s;    
+        -webkit-transition-timing-function: cubic-bezier(0.49, 0.02, 0, 1);
+        transition-timing-function: cubic-bezier(0.49, 0.02, 0, 1);
+    }
+
     -webkit-transform-style: preserve-3d;
     -moz-transform-style: preserve-3d;
     -ms-transform-style: preserve-3d;
@@ -244,26 +255,7 @@ section{
     -moz-transform-origin: center center;
     -ms-transform-origin: center center;
     -o-transform-origin: center center;
-    transform-origin: center center;
-    
-    -webkit-transition: all 2s;
-    -moz-transition: all 2s;
-    -o-transition: all 2s;
-    -ms-transition: all 2s;
-    transition: all 2s;
-    
-    /*медленно--быстро--медленно*/
-    -webkit-transition-duration:2s;
-    -moz-transition-duration:2s;
-    -ms-transition-duration:2s;
-    -o-transition-duration:2s;
-    transition-duration:2s;
-    /*-webkit-transition-timing-function: cubic-bezier(.75,.1,0,1);
-    -moz-transition-timing-function: cubic-bezier(.75,.1,0,1);
-    -ms-transition-timing-function: cubic-bezier(.75,.1,0,1);
-    -o-transition-timing-function: cubic-bezier(.75,.1,0,1);
-    transition-timing-function: cubic-bezier(.75,.1,0,1);*/
-    transition-timing-function: cubic-bezier(0.49, 0.02, 0, 1);
+    transform-origin: center center;    
     
     position:relative;
     display:block;
