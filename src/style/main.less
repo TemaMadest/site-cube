@@ -52,7 +52,7 @@
 @blue: #382346;
 @orange: #E96A4C;
 @gray: #bdbdbd;
-@content-width: 1600px;
+@content-width: 1200px;
 
 
 
@@ -92,6 +92,7 @@ header{
     .header-wrap{
         display: flex;
         align-items: center;
+        height: 100%;
 
         img.logo{
             height: 90%;
@@ -147,7 +148,7 @@ header nav ul{
                 height: 4px;
                 bottom: 5px;
                 left: -5px;                
-                background: @blue;
+                background: #6e7a86;
                 z-index: -1;
                 opacity: 1;
                 transition: 300ms cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -168,7 +169,7 @@ header nav ul{
                     height: 4px;
                     bottom: 5px;
                     left: -5px;
-                    background: @blue;
+                    background: #6e7a86;
                     z-index: -1;
                     opacity: 1;
                 };
@@ -281,7 +282,8 @@ section{
 section > div{
     position:absolute;
     display:block;
-    background: @bgcolor;
+    //background: @bgcolor;
+    background: url(../src/img/bg.png);
     height: 110%;
     padding-bottom:50px;
     overflow: hidden;
