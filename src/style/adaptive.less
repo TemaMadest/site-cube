@@ -1,5 +1,5 @@
 
-@media screen and (min-width: 320px) {
+@media only screen and (min-width: 320px) {
     section{
         -webkit-transform: perspective(900px) translate3d(0px,0px,-384px) rotate3d(0,1,0,-0deg);
         -moz-transform: perspective(900px) translate3d(0px,0px,-384px) rotate3d(0,1,0,-0deg);
@@ -38,15 +38,13 @@
     }
 }
 
-@media screen and (min-width: 650px) {
+@media only screen and (min-width: 650px) {
     header{
         .header-wrap{
             max-width: @content-width;
             margin: 0 auto;
         }        
     }
-
-
     nav{
         position: static;
         width: 100%;
@@ -85,6 +83,165 @@
     }
     .left{
         left:2rem;
+    }
+
+    .main{
+        .wrap{
+            .top{
+                h1{          
+                    font-size: 4rem;
+                    line-height: 5rem;
+                    margin-bottom: 3rem;  
+                }
+            }
+
+            .whenWeDo{
+                flex-direction: row;
+
+                .whenWeImage{                    
+                    max-width: 50%;  
+                }
+
+                .whenWeDescription{
+                    max-width: 50%;
+                    padding: 8rem 5rem 0;
+
+                    .title{
+                        h2{
+                            font-weight: normal;
+                            color: white;
+
+                            &:after{
+                                display: block;
+                            }
+                        }
+                    }
+
+                    .description{
+                        color: white;
+                        margin-top: 3rem;
+                        text-align: left;
+                    }
+                }
+
+                .overlay{
+                    display: block;
+                }
+            }
+
+            .whyWe{
+                margin-top: 10rem;
+
+                .vars{
+
+                    &:before{
+                        display: block;
+                    }
+
+                    .column{
+                        margin-top: 10rem;
+                        flex-direction: row;
+
+                        .right-col, .left-col{
+                            width: 50%;
+                            padding: 0rem 2rem;
+                        }
+
+                        &:nth-child(2n+1){
+                            .left-col{
+                                text-align: right;
+
+                                .caption{
+                                    h3{
+                                        &:after{
+                                            display: block;
+                                        }
+                                    }
+                                }
+                            }
+
+                            .right-col{
+                                img{
+                                    display: block;
+                                }
+                            }
+                        }
+
+                        &:nth-child(2n+2){
+                            .right-col{
+                                text-align: left;
+
+                                .caption{
+                                    h3{
+                                        &:after{
+                                            display: block;
+                                        }
+                                    }
+                                }
+                            }
+
+                            img{
+                                display: block;
+                            }
+                        }
+
+                        &:first-child{
+                            .left-col{
+                                &:after{
+                                    display: block;
+                                }
+                            }
+                        }
+
+                        &:nth-child(2n){
+                            .right-col{
+                                &:after{
+                                    display: block;
+                                }
+                            }
+                        }
+
+                        &:nth-child(3n){
+                            .left-col{
+                                &:after{
+                                    display: block;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .discount{
+            .wrap-discount{                
+                padding-top: 10rem;
+
+                span{
+                    &:first-child{
+                        top: 13rem;
+                        right: 23rem;
+                        text-align: right;
+                        transform: unset;
+                    }
+
+                    &:last-child{
+                        top: 0rem;
+                        margin-top: -4rem;
+                    }
+                }
+
+                h2{
+                    font-size: 7rem;
+                    top: 1rem;
+                }
+
+                &:before{
+                    top: 20rem;
+                    font-size: 40rem;
+                }
+            }
+        }
     }
 }
 
@@ -125,7 +282,7 @@
         -ms-transform: translate3d(0,0,-480px) rotate3d(0,1,0,-180deg);
         -o-transform: translate3d(0,0,-480px) rotate3d(0,1,0,-180deg);
         transform: translate3d(0,0,-480px) rotate3d(0,1,0,-180deg);
-    }
+    }    
 }
 
 @media screen and (min-width: 960px) {
