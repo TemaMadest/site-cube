@@ -88,10 +88,25 @@
     .main{
         .wrap{
             .top{
+                flex-direction: row;
+
                 h1{          
                     font-size: 4rem;
                     line-height: 5rem;
                     margin-bottom: 3rem;  
+                }
+
+                .wrapForm{
+                    margin-top: 2rem;
+
+                    .telephones{
+                        align-items: flex-end;
+                    }
+
+                    .adres{
+                        align-items: flex-end;
+                        margin-bottom: 0rem;
+                    }
                 }
             }
 
@@ -104,7 +119,7 @@
 
                 .whenWeDescription{
                     max-width: 50%;
-                    padding: 8rem 5rem 0;
+                    padding: 7rem 5rem 0;
 
                     .title{
                         h2{
@@ -121,6 +136,10 @@
                         color: white;
                         margin-top: 3rem;
                         text-align: left;
+                    }
+
+                    .btn-request{
+                        margin: 0 4rem;
                     }
                 }
 

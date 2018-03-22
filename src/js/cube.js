@@ -25,6 +25,8 @@
         menuBtn = $('.nav-panel'),
         leftBtn = $('.left'),
         rightBtn = $('.right'),
+        locate = document.location.hostname,
+        isDemo = locate == "localhost",
 
 
 
@@ -198,13 +200,15 @@
         },
 
         request = function(url){
+            let path = isDemo ? "../src/pages/" + url + ".html" : "/request";
             $.ajax({
-                url: "../src/pages/" + url + ".html",
-                data: {url: url},
+                method: isDemo ? "GET" : "POST",
+                url: path,
+                data: {action: url},
                 beforeSend: addLoader()
             })
-            .success(function(res){                
-                $(current).find('.inner').append(res);            
+            .success(function(res){ 
+                $(current).find('.inner').append(res);
                 if(!wait && busy){
                     wait = true;
                 }else{
@@ -212,8 +216,8 @@
                 }
             })
             .error(function(err){
-                console.log(err);
-            }); 
+                $(current).find('.inner').append(err);
+            });
         },
 
         addLoader = function(){
@@ -285,7 +289,7 @@
             }
         },
 
-        changeHash = () => {
+        changeHash = function() {
             if(!busy){
                 parses();
                 active_index();

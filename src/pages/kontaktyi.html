@@ -1,7 +1,49 @@
-<div class="kontacty">
+<div class="kontacty middles-position">
 	<div class="wrap">
 		<h1>Контакты</h1>
+		<div class="telephones">
+			<div class="left">				
+				<img src="/src/img/voellerei-kontakt-restaurant-reservierung-tischreservierung.png">
+			</div>
 
-		<img src="/src/img/voellerei-kontakt-restaurant-reservierung-tischreservierung.png">
+			<div class="right">
+				<span>Связаться с нами можно по телефонам:</span>		
+				<div class="numbers">
+					<a href="tel:89536464888">8-953-646-48-88</a>
+					<a href="tel:89536464888">8-953-646-48-88</a>
+				</div>
+				<span>Наш адрес:</span>
+				<span>г. Москва ул.Пролетарская 23</span>
+			</div>			
+		</div>
+		
+		<div id="maps" style="width: 1200px; height: 690px">
 	</div>
 </div>
+<script>
+	var init = function(){
+		var placemark = [
+			new ymaps.Placemark([55.753564, 37.621085], {hintContent: 'Красная площадь', balloonContent: 'Красная площадь' })			
+		];
+		var map = new ymaps.Map("maps", {
+			center: [55.753564, 37.621085],
+			zoom: 10
+		});
+		for(var i = 0; i < placemark.length; i++){
+			map.geoObjects.add(placemark[i]);
+		}
+		map.behaviors.disable('scrollZoom');
+	};  
+    
+    
+	if(typeof ymaps !== "undefined"){
+		if(isMobile.any){
+			var mobilemaps = new Image();
+			mobilemaps.src = "http://maps.google.com/maps/api/staticmap?size=1200x650&markers=label:1|color:blue|55.753564, 37.621085&markers=label:2|color:red|55.676108,37.526313&markers=label:2|color:yellow|55.762515,37.709784&markers=label:2|color:green|55.753564,37.621085";
+			mobilemaps.style.height = "100%";
+			$('#maps').append(mobilemaps);
+		}else{
+			ymaps.ready(init);
+		}
+	}
+</script>
