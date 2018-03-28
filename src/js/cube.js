@@ -26,7 +26,7 @@
         leftBtn = $('.left'),
         rightBtn = $('.right'),
         locate = document.location.hostname,
-        isDemo = locate == "localhost",
+        isDemo = locate == "localhost" || locate == "192.138.0.183",
 
 
 
@@ -207,7 +207,8 @@
                 data: {action: url},
                 beforeSend: addLoader()
             })
-            .success(function(res){ 
+            .success(function(res){
+                $(current).find('.inner').empty();
                 $(current).find('.inner').append(res);
                 if(!wait && busy){
                     wait = true;
@@ -216,6 +217,7 @@
                 }
             })
             .error(function(err){
+                $(current).find('.inner').empty();
                 $(current).find('.inner').append(err);
             });
         },
@@ -226,10 +228,10 @@
             $(current).find('.gr1_1').addClass('load');
         },
 
-        closeLoader = function(){
-            initScroller();
+        closeLoader = function(){            
             $(current).find('.gr1_1').addClass('loaded');
             setTimeout(() => {
+                initScroller();
                 $(current).find('.gr1_1').removeClass('load loaded');
             },500);
         },
