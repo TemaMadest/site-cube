@@ -28,9 +28,9 @@
 		ymaps.ready(init);
 	}
 
-	var selectService = function(){		
+	var selectService = function(){
 		if(!$(this).hasClass('active')){
-			$('#case li').removeClass('active');
+			$('.pick').removeClass('active');
 			$(this).addClass('active');
 			application.service = $(this).attr('data-type');
 		}
@@ -54,5 +54,8 @@
 	};
 
 	$('.items-left ul li').on('click', handler);
-	$('#case li').on('click', selectService);
+	var pickBtn = document.getElementsByClassName('pick');
+	for(var i = 0; i < pickBtn.length; i++){
+		pickBtn[i].onclick = selectService;
+	}
 }());

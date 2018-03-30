@@ -8,12 +8,12 @@
 			display: flex;
 			flex-direction: column;
 
-			&.js-scroll-animate{
+			/*&.js-scroll-animate{
 				h1{
 					color: transparent;
 					left: 1rem;
 				}
-			}
+			}*/
 
 			h1{		        
 				font-family: sans-serif;
@@ -54,7 +54,7 @@
 				    a{
 			    	    line-height: 2rem;
 					    font-size: 1.8rem;
-					    text-decoration: none;
+					    text-decoration: underline;
 					    color: #382445;
 					    margin-bottom: 1rem;					    
 
@@ -88,7 +88,7 @@
 			display: flex;
 			flex-direction: column;
 
-			&.js-scroll-animate{
+			/*&.js-scroll-animate{
 				.overlay{
 					left: 6rem;
 					right: 3rem;
@@ -99,7 +99,7 @@
 						margin-left: 1rem;
 					}
 				}
-			}
+			}*/
 
 			.overlay{
 			    position: absolute;
@@ -116,6 +116,7 @@
 
 			.whenWeImage{
 				max-width: 100%;
+				display: none;
 
 				img{
 				    width: 100%;
@@ -127,7 +128,8 @@
 
 			.whenWeDescription{        
                 max-width: 100%;
-                padding: 2rem 1rem 0;
+                padding: 2rem 1rem 1rem;
+   				background: #e6e6e6;
 
 	    	    .title{
 	    	    	h2{
@@ -326,7 +328,7 @@
 		        		.left-col{
 		        			&:before{
 		        				content: '1';
-							    display: block;
+							    display: none;
 							    position: absolute;
 							    left: 0;
 							    top: 0;
@@ -338,10 +340,10 @@
 		    		}
 
 		    		&:nth-child(2n){
-		    			.left-col{
+		    			.right-col{
 		        			&:before{
 		        				content: '2';
-							    display: block;
+							    display: none;
 							    position: absolute;
 							    right: 0;
 							    top: 0;
@@ -356,7 +358,7 @@
 		    			.left-col{
 		        			&:before{
 		        				content: '3';
-							    display: block;
+							    display: none;
 							    position: absolute;
 							    left: 0;
 							    top: 0;
@@ -368,10 +370,10 @@
 		    		}
 
 		    		&:nth-child(4n){
-		    			.left-col{
+		    			.right-col{
 		        			&:before{
 		        				content: '4';
-							    display: block;
+							    display: none;
 							    position: absolute;
 							    right: 0;
 							    top: 0;
@@ -387,18 +389,18 @@
 
 		.discount{
 			width: 100%;
+			margin-top: 4rem;
 
 			.wrap-discount{
 				position: relative;
-				padding-top: 2rem;
 
 				&:before{
 			        content: "%";
 				    position: absolute;
 				    left: 50%;
-				    top: 15rem;
+				    top: 10rem;
 				    transform: translateX(-50%);
-				    font-size: 22rem;
+				    font-size: 20rem;
 				    font-weight: 700;
 				    color: rgba(177,177,177,.25);
 				    font-family: GothamProBlack;
@@ -411,23 +413,23 @@
 					    width: 18rem;
 					    font-size: 1.5rem;
 					    line-height: 2rem;
-					    top: 10rem;
+					    top: 4rem;
 		                right: 50%;
 		                transform: translateX(50%);
 		                text-align: center;
 					}
 
 					&:last-child{
-					    margin: 0 auto;
-					    max-width: 34rem;
-					    display: block;
+				        display: block;
+					    width: 100%;
 					    text-align: center;
-					    font-size: 1.8rem;
-					    line-height: 3rem;
-					    position: relative;				    
-					    font-weight: bold;
-					    top: 2rem;
-		                margin: 0rem auto 0;
+					    font-size: 1.5rem;
+					    line-height: 2rem;
+					    font-weight: 700;
+					    bottom: 3rem;
+					    position: absolute;
+					    left: 50%;
+					    transform: translateX(-50%);
 					}
 				}
 
@@ -436,19 +438,83 @@
 				    position: relative;
 				    text-align: center;
 				    font-size: 6rem;
-				    line-height: 7rem;
+				    line-height: 22rem;
 				    font-family: GothamProBlack;
 				    color: #382346;
-				    font-size: 5rem;
-		            top: 6.8rem;
+				    font-size: 4rem;		           
+	                top: 0;
+				}
+			}
+		}
+
+
+		.service-mobile{
+			margin-top: 3rem;
+
+			.wrap-service-mobile{				
+				.title{
+					h2{
+				        margin: 0;
+					    text-align: center;
+					    font-size: 2rem;
+					    line-height: 2.5rem;
+					    font-weight: 400;
+					    font-family: GothamProLight;
+					}
+				}
+				ul{
+					list-style-type: none;
+				    margin-top: 3rem;
+					li{
+					    background: #e8e8e8;
+					    padding: .5rem 1rem;
+					    margin-top: 1rem;
+					    .wrap-item{
+				    	    display: flex;
+    						align-items: center;
+    						.title{
+    							flex: 1;
+    							h3{
+				    		        font-size: 1.2rem;
+								    line-height: 2rem;
+								    margin: 0;
+								    font-family: GothamProLight;
+								    font-weight: 400;
+								    color: #000;
+								    position: relative;					        
+						    	}
+    						}
+    						.price{
+						        font-size: 1.4rem;
+							    line-height: 1.4rem;
+							    margin-right: 1rem;
+							    font-family: GothamProLight;
+							    font-weight: 400;
+							    color: @red;
+							    position: relative;
+    						}
+					    	.btn{
+			    	            padding: .5rem 1rem;
+							    color: #fff;
+							    font-size: 1.2rem;
+							    background: #382346;
+							    cursor: pointer;
+							    border-bottom: 4px solid @red;
+
+						        &:hover{
+						    	    background: rgba(56, 35, 70, 0.81);
+							    }
+						    }
+					    }
+			        }
 				}
 			}
 		}
 
 		.service{
-			.wrap-service{
-			    margin-top: 15rem;
+			margin-top: 6rem;
 
+			.wrap-service{	    
 				.title{
 					h2{
 						margin: 0;
@@ -787,14 +853,10 @@
 			    	a{
 		    		    line-height: 2rem;
 					    font-size: 1.8rem;
-					    text-decoration: none;
+					    text-decoration: underline;
 					    color: #382445;
 					    margin-bottom: 1rem;
 					    font-weight: bold;
-
-					    &:hover{
-					    	text-decoration: underline;
-					    }
 			    	}
 			    }
 			}
@@ -802,9 +864,7 @@
 	}
 }
 
-
-
-.czenyi{
+.information{
 	.wrap{		
 
 		h1{
@@ -818,10 +878,8 @@
 	}
 }
 
-
-.gallery{
-	.wrap{		
-
+.czenyi{
+	.wrap{
 		h1{
 			font-size: 2.5rem;
 		    line-height: 2.5rem;
@@ -830,6 +888,91 @@
 		    text-align: center;
 		}
 
+		span{
+		    margin: 1rem 0;
+		    display: block;
+		    font-size: 1.5rem;
+		    font-style: italic;
+		    line-height: 1.5rem;
+		}
+
+		.vars{
+			display: flex;
+			flex-direction: column;
+
+			.item{
+				margin-top:1rem;
+
+				.item-wrap{
+					padding: 1rem;
+					display: flex;
+					flex-direction: column;
+					background: #e0e0e0;
+    				padding: 1rem;
+
+					.title{
+						h2{
+							font-size: 1.8rem;
+						    font-family: GothamProLight;
+						    font-weight: 700;
+						    text-align: left;
+						}
+					}
+
+					.row{
+						display: flex;
+						flex-direction: row;
+					    align-items: center;
+				        padding: 1rem 0;
+    					border-bottom: 4px solid #c7c7c7;
+
+    					&:last-child{
+    						border-bottom: 0;
+    					}
+
+						span{
+							flex: 1;
+						    font-size: 1.5rem;
+						}
+
+						.price{
+						    font-size: 1.5rem;
+						}
+					}
+				}				
+			}
+		}
+	}
+}
+
+
+.gallery{
+	.wrap{
+		h1{
+			font-size: 2.5rem;
+		    line-height: 2.5rem;
+		    font-weight: 400;
+		    font-family: GothamProLight;
+		    text-align: center;
+		}
+
+		.photos{
+			display: flex;
+			flex-wrap: wrap;
+
+			.item{
+				width: 100%;
+				display: block;
+			    padding: .5rem;
+
+				img{
+				    width: 100%;
+				    display: block;
+				    border: 4px solid #dd5347;
+				    cursor: pointer;
+				}
+			}
+		}
 	}
 }
 
@@ -841,20 +984,17 @@
 
 .make-request-form{
     padding: 1rem 1rem 1rem;
-    width: 346px;
-    overflow: hidden;
-
+    width: 100%;
 	div[data-step="1"]{
-
 		.case{	
-			ul{
-				li{
+			#case{
+				div{
 					list-style-type: none;
 				    height: 3rem;
 				    line-height: 3rem;
 				    padding-left: 3rem;
 				    font-size: 1.3rem;
-				    font-family: robotolight;
+				    font-family: GothamProLight;
 				    background: #e8e8e8;
 				    margin-top:.5rem;
 				    cursor: pointer;
@@ -905,14 +1045,14 @@
 
 		.title{
 			font-size: 1.5rem;
-		    font-family: robotolight;
+		    font-family: GothamProLight;
 		    margin-bottom: 2rem;
 		}
 
 		.next-step{
 	        padding: 0.6rem 2rem;
 		    color: white;
-		    font-family: robotolight;
+		    font-family: GothamProLight;
 		    font-size: 1.5rem;
 		    background: #382346;
 		    cursor: pointer;
@@ -924,8 +1064,8 @@
 		    	position: absolute;
 			    content: "";
 			    top: 10px;
-			    width: 2rem;
-			    height: 2rem;
+			    width: 1.75rem;
+    			height: 1.75rem;
 			    right: 1rem;
 			    background: url(../src/img/icons/next.png) no-repeat;
 			    background-size: 100%;
@@ -936,6 +1076,82 @@
 		    }
 		}  
 	}
+}
+
+footer{
+	background: #382445;
+    border-bottom: 4px solid #dd5347;
+    margin-top: 3rem;
+
+    .wrap{
+	    padding-bottom: 3rem;
+	    display: flex;
+	    flex-direction: column;
+
+    	.left{
+			display: flex;
+			flex-direction: column;
+			flex: 1;
+
+			div{
+				display: flex;
+				flex-direction: column;
+
+				span, a{
+					color: #dfe0dd;
+			        margin: .5rem 0;
+    				font-size: 1.2rem;
+				}
+
+				a{
+					&:before{
+						content:'';
+					}
+				}
+			}
+    	}
+
+    	.right{
+		    margin-top: 2rem;
+
+    		span{
+    			color: #dfe0dd;
+    			font-size: 1.3rem;
+    			display: block;
+    			text-align: center;
+    			width: 100%;
+    		}
+
+    		form{
+    			display: flex;
+    			flex-direction: column;
+
+    			input, textarea{
+				    height: 2.8rem;
+				    margin-top: 1rem;
+				    border: 4px solid #dd5347;
+				    padding-left: .5rem;
+				    font-size: 1.2rem;
+				    font-family: GothamProLight;
+				    outline: none;
+			        background: #dfe0dd;
+    			}
+
+    			textarea{
+    				height: 5rem;
+    			}
+
+    			input[type="submit"]{
+				    cursor: pointer;
+				    background: #dd5347;
+				    color: #dfe0dd;
+				    font-size: 1.5rem;
+				    line-height: 1.5rem;
+				    height: 3rem;
+    			}
+    		}
+    	}
+    }
 }
 
 .hidden{

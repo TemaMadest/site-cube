@@ -1,5 +1,44 @@
 <div class="gallery middles-position">
 	<div class="wrap">
 		<h1>Фотогалерея</h1>
+
+		<div class="photos">
+			<div class="item"><a href="/src/img/gallery.jpg" data-fancybox="cl-group"><img src="/src/img/gallery.jpg"></a></div>
+			<div class="item"><a href="/src/img/gallery.jpg" data-fancybox="cl-group"><img src="/src/img/gallery.jpg"></a></div>
+			<div class="item"><a href="/src/img/gallery.jpg" data-fancybox="cl-group"><img src="/src/img/gallery.jpg"></a></div>
+			<div class="item"><a href="/src/img/gallery.jpg" data-fancybox="cl-group"><img src="/src/img/gallery.jpg"></a></div>
+			<div class="item"><a href="/src/img/gallery.jpg" data-fancybox="cl-group"><img src="/src/img/gallery.jpg"></a></div>
+			<div class="item"><a href="/src/img/gallery.jpg" data-fancybox="cl-group"><img src="/src/img/gallery.jpg"></a></div>
+			<div class="item"><a href="/src/img/gallery.jpg" data-fancybox="cl-group"><img src="/src/img/gallery.jpg"></a></div>
+			<div class="item"><a href="/src/img/gallery.jpg" data-fancybox="cl-group"><img src="/src/img/gallery.jpg"></a></div>
+			<div class="item"><a href="/src/img/gallery.jpg" data-fancybox="cl-group"><img src="/src/img/gallery.jpg"></a></div>
+			<div class="item"><a href="/src/img/gallery.jpg" data-fancybox="cl-group"><img src="/src/img/gallery.jpg"></a></div>
+			<div class="item"><a href="/src/img/gallery.jpg" data-fancybox="cl-group"><img src="/src/img/gallery.jpg"></a></div>
+			<div class="item"><a href="/src/img/gallery.jpg" data-fancybox="cl-group"><img src="/src/img/gallery.jpg"></a></div>
+
+		</div>
 	</div>
 </div>
+<script>
+	$('[data-fancybox="cl-group"]').fancybox({
+	    idleTime  : false,
+		baseClass : 'fancybox-custom-layout',
+	    margin    : 0,
+		gutter    : 0,
+		infobar   : false,
+	    thumbs    : {
+	        hideOnClose : false,
+			parentEl    : '.fancybox-outer'
+	    },
+	    touch : {
+	        vertical : false
+	    },
+	    buttons : [
+	        'close',
+	        'thumbs'
+	    ],
+	    animationEffect   : "fade",
+		animationDuration : 300,
+		transitionEffect  : false
+	});
+</script>

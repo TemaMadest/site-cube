@@ -120,6 +120,10 @@
                     .telephones{
                         align-items: flex-end;
 
+                        a{
+                            text-decoration: none;
+                        }
+
                         &:before{
                             display: block;
                         }
@@ -136,12 +140,14 @@
                 flex-direction: row;
 
                 .whenWeImage{                    
-                    max-width: 50%;  
+                    max-width: 50%; 
+                    display: block; 
                 }
 
                 .whenWeDescription{
                     max-width: 50%;
                     padding: 7rem 5rem 0;
+                    background: none;
 
                     .title{
                         h2{
@@ -175,7 +181,7 @@
 
 
             .whyWe{
-                margin-top: 15rem;
+                margin-top: 6rem;
                 .vars{
                     &:before{
                         display: block;
@@ -191,7 +197,7 @@
                         &:nth-child(2n+1){
                             .left-col{
                                 text-align: right;
-                                padding: 0rem 2rem;
+                                padding: 0rem 2rem;                                
 
                                 .caption{
                                     h3{
@@ -235,7 +241,7 @@
                         &:first-child{
                             .left-col{
                                 padding: 0rem 2rem;
-                                &:after{
+                                &:before{
                                     display: block;
                                 }
                             }
@@ -244,7 +250,7 @@
                         &:nth-child(2n){
                             .right-col{
                                 padding: 0rem 2rem;
-                                &:after{
+                                &:before{
                                     display: block;
                                 }
                             }
@@ -253,7 +259,7 @@
                         &:nth-child(3n){                            
                             .left-col{
                                 padding: 0rem 2rem;
-                                &:after{
+                                &:before{
                                     display: block;
                                 }
                             }
@@ -266,30 +272,26 @@
 
 
             .discount{
-                .wrap-discount{                
-                    padding-top: 10rem;
-
+                .wrap-discount{
                     span{
                         &:first-child{
-                            top: 13rem;
                             right: 23rem;
                             text-align: right;
                             transform: unset;
                         }
 
                         &:last-child{
-                            top: 0rem;
-                            margin-top: -4rem;
+                            bottom: 4rem;
+                            line-height: 3rem;
                         }
                     }
 
                     h2{
                         font-size: 7rem;
-                        top: 1rem;
                     }
 
                     &:before{
-                        top: 20rem;
+                        top: 10rem;
                         font-size: 40rem;
                     }
                 }
@@ -299,6 +301,7 @@
 
             .subject{
                 display: block;
+                height: 20rem;
             }
         }
     }
@@ -321,7 +324,26 @@
                 }
 
                 .right{
-                    margin-bottom: 0;                    
+                    margin-bottom: 0; 
+
+                    .numbers{
+                        a{
+                            text-decoration: none;
+                            &:hover{
+                                text-decoration: underline;
+                            }
+                        }
+                    }                   
+                }
+            }
+        }
+    }
+
+    .gallery{
+        .wrap{
+            .photos{
+                .item{
+                    width: 25%;
                 }
             }
         }
@@ -331,6 +353,20 @@
         padding: 1rem 2rem 2rem 2rem;
         width: 400px;
         overflow: hidden;
+    }
+
+    footer{
+        .wrap{
+            flex-direction: row;
+
+            .right{
+                margin-top: 0rem;
+
+                span{
+                    text-align: center;
+                }
+            }
+        }
     }
 }
 

@@ -10,7 +10,7 @@
 				<div class="adres">
 					<span><b>Адрес</b> - г. Москва Варшавское шоссе 47</span>
 					<span><b>Время работы</b> - ежедневно с 8:00 до 24:00</span>
-					<span id="showMap" data-src="#maps-overlay" data-fancybox>Посмотреть на карте</span>
+					<span id="showMap" data-src="#maps-overlay" data-fancybox fancybox-modal="true">Посмотреть на карте</span>
 				</div>
 			</div>
 		</div>		
@@ -25,7 +25,7 @@
 				<div class="description">
 					<p>Производим дезинфекцию, дезинсекцию, дератизацию по всей Москве и МО. Выводим паразитов всеми существующими способами. Оставьте заявку или позвоните нам, мы выведим всех паразитов из вашего помещения!</p>
 				</div>
-				<div class="btn-request" data-src="#make-request" data-fancybox>Оформить заявку</div>
+				<div class="btn-request" data-src="#make-request" data-fancybox fancybox-modal="true">Оформить заявку</div>
 			</div>		
 		</div>
 
@@ -39,6 +39,95 @@
 				<div class="subitem mosquito">Комары</div>
 			</div>
 		</div>
+
+
+
+
+		<div class="service-mobile">
+			<div class="wrap-service-mobile">
+				<div class="title">
+					<h2>Объекты дезинфекции:</h2>
+				</div>
+
+				<ul>
+					<li class="item" data-title="Квартира">
+						<div class="wrap-item">
+							<div class="title"><h3>Квартира</h3><div class="price">от 1100р</div></div>							
+							<div class="btn exp-btn">Заказать</div>
+						</div>
+					</li>
+					<li class="item" data-title="Частный дом">
+						<div class="wrap-item">
+							<div class="title"><h3>Частный дом</h3><div class="price">от 1100р</div></div>							
+							<div class="btn exp-btn">Заказать</div>
+						</div>
+					</li>
+					<li class="item" data-title="Организация Общепита">
+						<div class="wrap-item">
+							<div class="title"><h3>Организация Общепита</h3><div class="price">от 1100р</div></div>							
+							<div class="btn exp-btn">Заказать</div>
+						</div>
+					</li>
+					<li class="item" data-title="Автомойка">
+						<div class="wrap-item">
+							<div class="title"><h3>Автомойка</h3><div class="price">от 1100р</div></div>							
+							<div class="btn exp-btn">Заказать</div>
+						</div>
+					</li>
+					<li class="item" data-title="Производственные помещения">
+						<div class="wrap-item">
+							<div class="title"><h3>Производственные помещения</h3><div class="price">от 1100р</div></div>
+							<div class="btn exp-btn">Заказать</div>
+						</div>
+					</li>
+					<li class="item" data-title="Офисные помещения">
+						<div class="wrap-item">
+							<div class="title"><h3>Офисные помещения</h3><div class="price">от 1100р</div></div>							
+							<div class="btn exp-btn">Заказать</div>
+						</div>
+					</li>
+					<li class="item" data-title="Склады">
+						<div class="wrap-item">
+							<div class="title"><h3>Склады</h3><div class="price">от 1100р</div></div>							
+							<div class="btn exp-btn">Заказать</div>
+						</div>
+					</li>
+					<li class="item" data-title="Цеха">
+						<div class="wrap-item">
+							<div class="title"><h3>Цеха</h3><div class="price">от 1100р</div></div>							
+							<div class="btn exp-btn">Заказать</div>
+						</div>
+					</li>
+					<li class="item" data-title="Парники">
+						<div class="wrap-item">
+							<div class="title"><h3>Парники</h3><div class="price">от 1100р</div></div>							
+							<div class="btn exp-btn">Заказать</div>
+						</div>
+					</li>
+					<li class="item" data-title="Общежития">
+						<div class="wrap-item">
+							<div class="title"><h3>Общежития</h3><div class="price">от 1100р</div></div>							
+							<div class="btn exp-btn">Заказать</div>
+						</div>
+					</li>
+					<li class="item" data-title="Гостиницы">
+						<div class="wrap-item">
+							<div class="title"><h3>Гостиницы</h3><div class="price">от 1100р</div></div>							
+							<div class="btn exp-btn">Заказать</div>
+						</div>
+					</li>
+					<li class="item" data-title="Магазины">
+						<div class="wrap-item">
+							<div class="title"><h3>Магазины</h3><div class="price">от 1100р</div></div>							
+							<div class="btn exp-btn">Заказать</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+
+
 
 		<div class="service">
 			<div class="wrap-service">
@@ -66,7 +155,7 @@
 					</div>
 					<div class="items-right item">
 						<ul>
-							<li data-item="kvartira">
+							<li data-item="kvartira" data-title="Квартира">
 								<div class="wrap-item">
 									<div class="title"><h3>Квартира</h3></div>
 									<div class="description">
@@ -76,9 +165,9 @@
 									<div class="btn exp-btn">Заказать</div>
 								</div>
 							</li>
-							<li data-item="office" class="active">
+							<li data-item="office" data-title="Офис" class="active">
 								<div class="wrap-item">
-									<div class="title"><h3>Оффис</h3></div>
+									<div class="title"><h3>Офис</h3></div>
 									<div class="description">
 										<p>Товарищи! укрепление и развитие структуры требуют определения и уточнения соответствующий условий активизации. Не следует, однако забывать, что новая модель организационной деятельности в значительной степени обуславливает</p>
 									</div>
@@ -86,7 +175,7 @@
 									<div class="btn exp-btn">Заказать</div>
 								</div>
 							</li>
-							<li data-item="chastnydom">
+							<li data-item="chastnydom" data-title="Частный дом">
 								<div class="wrap-item">
 									<div class="title"><h3>Частный дом</h3></div>
 									<div class="description">
@@ -96,7 +185,7 @@
 									<div class="btn exp-btn">Заказать</div>
 								</div>
 							</li>
-							<li data-item="obshepit">
+							<li data-item="obshepit" data-title="Организация Общепита">
 								<div class="wrap-item">
 									<div class="title"><h3>Организация Общепита</h3></div>
 									<div class="description">
@@ -106,17 +195,7 @@
 									<div class="btn exp-btn">Заказать</div>
 								</div>
 							</li>
-							<li data-item="automoika">
-								<div class="wrap-item">
-									<div class="title"><h3>Автомойка</h3></div>
-									<div class="description">
-										<p>Формированию позиции требуют определения и уточнения существенных финансовых и административных условий. Идейные соображения высшего порядка, а также консультация с широким активом обеспечивает широкому кругу (специалистов)</p>
-									</div>
-									<div class="image"><img src=""></div>
-									<div class="btn exp-btn">Заказать</div>
-								</div>
-							</li>
-							<li data-item="automoika">
+							<li data-item="automoika" data-title="Автомойка">
 								<div class="wrap-item">
 									<div class="title"><h3>Автомойка</h3></div>
 									<div class="description">
@@ -126,7 +205,7 @@
 									<div class="btn exp-btn">Заказать</div>
 								</div>
 							</li>
-							<li data-item="proizvodstvo">
+							<li data-item="proizvodstvo" data-title="Производственные помещения">
 								<div class="wrap-item">
 									<div class="title"><h3>Производственные помещения</h3></div>
 									<div class="description">
@@ -136,7 +215,7 @@
 									<div class="btn exp-btn">Заказать</div>
 								</div>
 							</li>
-							<li data-item="sklad">
+							<li data-item="sklad" data-title="Склады">
 								<div class="wrap-item">
 									<div class="title"><h3>Склады</h3></div>
 									<div class="description">
@@ -146,7 +225,7 @@
 									<div class="btn exp-btn">Заказать</div>
 								</div>
 							</li>
-							<li data-item="cex">
+							<li data-item="cex" data-title="Цеха">
 								<div class="wrap-item">
 									<div class="title"><h3>Цеха</h3></div>
 									<div class="description">
@@ -156,7 +235,7 @@
 									<div class="btn exp-btn">Заказать</div>
 								</div>
 							</li>
-							<li data-item="Parniki">
+							<li data-item="Parniki" data-title="Парники">
 								<div class="wrap-item">
 									<div class="title"><h3>Парники</h3></div>
 									<div class="description">
@@ -166,7 +245,7 @@
 									<div class="btn exp-btn">Заказать</div>
 								</div>
 							</li>
-							<li data-item="obshejity">
+							<li data-item="obshejity" data-title="Общежития">
 								<div class="wrap-item">
 									<div class="title"><h3>Общежития</h3></div>
 									<div class="description">
@@ -176,7 +255,7 @@
 									<div class="btn exp-btn">Заказать</div>
 								</div>
 							</li>
-							<li data-item="gostinicy">
+							<li data-item="gostinicy" data-title="Гостиницы">
 								<div class="wrap-item">
 									<div class="title"><h3>Гостиницы</h3></div>
 									<div class="description">
@@ -186,7 +265,7 @@
 									<div class="btn exp-btn">Заказать</div>
 								</div>
 							</li>
-							<li data-item="magaziny">
+							<li data-item="magaziny" data-title="Магазины">
 								<div class="wrap-item">
 									<div class="title"><h3>Магазины</h3></div>
 									<div class="description">
@@ -258,11 +337,11 @@
 				<div data-step="1">
 					<div class="title">Выберите услугу:</div>
 					<div class="case"> 
-				       <ul id="case">						    
-						    <li class="dezinfekcia" data-type="Дезинфекция">Дезинфекция</li>
-						    <li class="dezinsekcia" data-type="Дезинсекция">Дезинсекция</li>
-						    <li class="deratizatia" data-type="Дератизация">Дератизация</li>						    
-						</ul>
+				       <div id="case">
+						    <div class="dezinfekcia pick" data-type="Дезинфекция">Дезинфекция</div>
+						    <div class="dezinsekcia pick" data-type="Дезинсекция">Дезинсекция</div>
+						    <div class="deratizatia pick" data-type="Дератизация">Дератизация</div>						    
+						</div>
 				    </div>
 				    <div class="next-step">Далее</div>
 				</div>
@@ -270,5 +349,30 @@
 		</div>
 	</div>
 </div>
+
+<footer>
+	<div class="wrap middles-position">
+		<div class="left">
+			<div class="adres">
+				<span>mosvodootvod@yandex.ru</span>
+				<span>г. Москва Варшавское шоссе 47</span>
+				<span>Время работы: ежедневно с 8:00 до 24:00</span>
+			</div>
+			<div class="telephones">
+				<a href="tel:89566542156">+7(956)654-21-56</a>
+				<a href="tel:89566542156">+7(953)919-88-34</a>
+			</div>
+		</div>
+		<div class="right">
+			<span>Свяжитесь с нами заполнив форму</span>
+			<form action="/">
+				<input type="text" placeholder="Ваше имя">
+				<input type="email" placeholder="Ваша почта">
+				<textarea placeholder="Ваш комментарий"></textarea>
+				<input type="submit" value="Отправить">
+			</form>
+		</div>
+	</div>
+</footer>
 
 <script src="src/js/content.js"></script>
