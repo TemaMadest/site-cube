@@ -98,6 +98,13 @@ header{
             background-position: 0;
             position: relative;
 
+            &.active{
+                .wrapp{
+                    display: block;
+                    z-index: 99;
+                }
+            }
+
             .wrapp{
                 position: absolute;
                 top: 2.4rem;
@@ -152,14 +159,7 @@ header{
                     border-color: transparent transparent @bgcolor;
                     line-height: 0;
                 }
-            }
-
-            &:hover{
-                .wrapp{
-                    z-index: 99;
-                    display: block;
-                }
-            }
+            }            
         }
     }
 }
@@ -349,7 +349,6 @@ section > div{
     background: #fff;    
     height: 110%;
     padding-bottom:50px;
-    overflow: hidden;
     border-left: 1px solid #801d1d;
     border-right: 1px solid #801d1d;
 }
@@ -426,8 +425,8 @@ section > div{
     width:100%; 
     min-height:500px; 
     height: 100%;
-    overflow-y: auto;
-    padding-bottom: 50px;
+    overflow-y: scroll;
+    padding-bottom: 15px;
 
     &.load{
         &:before{
@@ -438,7 +437,7 @@ section > div{
             right: 0;
             bottom: 0;
             background: @bgcolor;
-            z-index: 999;
+            z-index: 9999;
             display: block;
             pointer-events: none;
             transition: .5s ease;
@@ -455,7 +454,7 @@ section > div{
             height: 50px;
             background: url(../src/img/loading.svg) no-repeat;
             background-size: 100%;
-            z-index: 9999;
+            z-index: 99999;
         }
     }
 

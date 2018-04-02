@@ -16,6 +16,7 @@
         ],
         busy = false,
         wait = false,
+        mail = $('.mail'),
         active = $('nav').find('.active'),
         current = grid[0],
         scroller = null,
@@ -208,7 +209,6 @@
                 beforeSend: addLoader()
             })
             .success(function(res){
-                $(current).find('.inner').empty();
                 $(current).find('.inner').append(res);
                 if(!wait && busy){
                     wait = true;
@@ -217,7 +217,6 @@
                 }
             })
             .error(function(err){
-                $(current).find('.inner').empty();
                 $(current).find('.inner').append(err);
             });
         },
@@ -321,6 +320,13 @@
             $('.gr3').css({
                 transform: 'translate3d(0,0,' + ww / -2 + 'px) rotate3d(0,1,0,-180deg)',
             });
+        },
+
+        mail_btn_hover = function(){
+            if(isMobile.any){
+                if($(this).hasClass('active')) $(this).removeClass('active');
+                else $(this).addClass('active');
+            }
         };
 
     $(w).on('resize', ResizeWindow);
@@ -330,6 +336,7 @@
     rightBtn.on('click', rightHandler);
     $(w).on('hashchange', changeHash);
     $(w).on('load', loader);
+    $(mail).on('click', mail_btn_hover);
 
     init();
 }());
