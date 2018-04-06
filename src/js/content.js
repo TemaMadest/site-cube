@@ -1,12 +1,4 @@
 (function(){
-
-	var application = {
-		name: null,
-		telephone: null,
-		step: 1,
-		service: null
-	};
-
 	//инициализация карты на главной странице
 	var init = function(){
 		var w = $(window).width();
@@ -32,7 +24,20 @@
 		if(!$(this).hasClass('active')){
 			$('.pick').removeClass('active');
 			$(this).addClass('active');
-			application.service = $(this).attr('data-type');
+			$('input[name="type"]').attr('value', $(this).attr('data-type'));
+			$('.next-step').removeClass('disable');
+		}
+	};
+
+	var backstepHandler = function(){
+		$('div[data-step="1"]').removeClass('hidden');
+		$('div[data-step="2"]').addClass('hidden');
+	};
+
+	var nextstepHandler = function(){	
+		if($('.pick').hasClass('active')){
+			$('div[data-step="1"]').addClass('hidden');
+			$('div[data-step="2"]').removeClass('hidden');
 		}
 	};
 
@@ -55,7 +60,9 @@
 
 	$('.items-left ul li').on('click', handler);
 	var pickBtn = document.getElementsByClassName('pick');
-	for(var i = 0; i < pickBtn.length; i++){
-		pickBtn[i].onclick = selectService;
-	}
+	var nextBtn = document.getElementsByClassName('next-step')[0];
+	var backBtn = document.getElementsByClassName('back-btn')[0];
+	for(var i = 0; i < pickBtn.length; i++) pickBtn[i].onclick = selectService;
+	backBtn.onclick = backstepHandler;
+	nextBtn.onclick = nextstepHandler;
 }());

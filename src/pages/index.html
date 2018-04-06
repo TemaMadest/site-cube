@@ -334,17 +334,43 @@
 		<div class="hidden" id="maps-overlay"><div id="maps"></div></div>
 		<div class="hidden" id="make-request">
 			<div class="make-request-form">
-				<div data-step="1">
-					<div class="title">Выберите услугу:</div>
-					<div class="case"> 
-				       <div id="case">
-						    <div class="dezinfekcia pick" data-type="Дезинфекция">Дезинфекция</div>
-						    <div class="dezinsekcia pick" data-type="Дезинсекция">Дезинсекция</div>
-						    <div class="deratizatia pick" data-type="Дератизация">Дератизация</div>						    
+				<form action="" method="POST">
+					<input type="hidden" value="" name="type">
+					<div data-step="1">
+						<div class="title">Выберите услугу:</div>
+						<div class="case"> 
+					       <div id="case">
+							    <div class="dezinfekcia pick" data-type="Дезинфекция">Дезинфекция</div>
+							    <div class="dezinsekcia pick" data-type="Дезинсекция">Дезинсекция</div>
+							    <div class="deratizatia pick" data-type="Дератизация">Дератизация</div>						    
+							</div>
+					    </div>
+					    <div class="next-step disable">Далее</div>
+					</div>
+
+					<div data-step="2" class="hidden">
+						<div class="back-btn">Назад</div>
+						<div class="title">Выберите объект:</div>
+						<div class="objects">
+							<select class="obj" name="objects">
+								<option>Квартира</option>
+								<option>Частный дом</option>
+							</select>
 						</div>
-				    </div>
-				    <div class="next-step">Далее</div>
-				</div>
+						<div class="subjects">
+							<div class="title">Выберите паразитов:</div>
+							<select class="subj" name="subjects">
+								<option>Мыши</option>
+								<option>Тараканы</option>
+							</select>
+						</div>
+						<div class="inputs">
+							<input type="text" placeholder="Ваше имя" name="name">
+							<input type="tel" placeholder="Ваш телефон" name="tel">
+							<input type="submit" value="Заказать">
+						</div>
+					</div>
+				</form>
 			</div>
 		</div>
 	</div>

@@ -17,6 +17,7 @@
         busy = false,
         wait = false,
         mail = $('.mail'),
+        mail_btn = mail.find('.btn-request'),
         active = $('nav').find('.active'),
         current = grid[0],
         scroller = null,
@@ -53,7 +54,8 @@
 
         selectMenuItem = function() {
             if (!busy){
-                location.hash = $(this).attr('href');
+                //location.hash = $(this).attr('href');
+                $.address.value($(this).attr('href'));
                 setActiveButton($(this));
                 closeMenu();
                 if (index < getIndex($(this))) {
@@ -112,7 +114,8 @@
                         rotateToleft();
                         hrefs = active.attr('href');
                         getContent(hrefs);
-                        location.hash = active.attr('href');
+                        //location.hash = active.attr('href');
+                        $.address.value($(this).attr('href'));
                     }
                 }
             }        
@@ -130,7 +133,8 @@
                         rotateToright();
                         hrefs = active.attr('href');
                         getContent(hrefs);
-                        location.hash = active.attr('href');                        
+                        //location.hash = active.attr('href');
+                        $.address.value($(this).attr('href'));                     
                     }
                 }
             }
@@ -241,14 +245,15 @@
                 pos, href = "",
                 flag = false;
             while (i < loc.length) {
-                if (loc[i] == "#") {
-                    pos = i + 1;
+                if (loc[i] == "#" && loc[i + 1] == "/") {
+                    pos = i + 2;
                     flag = true;
                 }
                 i++;
             }
             if (flag === true) {
                 href = loc.substring(pos);
+                if(href == "") href = "index";
             }else{
                 href = "index";
             }
@@ -295,6 +300,7 @@
                 parses();
                 active_index();
                 setActiveButton(active);
+                rotateToleft();
                 getContent(active.attr('href'));
             }
         },
@@ -327,6 +333,10 @@
                 if($(this).hasClass('active')) $(this).removeClass('active');
                 else $(this).addClass('active');
             }
+        },
+
+        mail_csroll = function(){
+            
         };
 
     $(w).on('resize', ResizeWindow);
@@ -337,6 +347,7 @@
     $(w).on('hashchange', changeHash);
     $(w).on('load', loader);
     $(mail).on('click', mail_btn_hover);
+    $(mail_btn).on('click', mail_csroll);
 
     init();
 }());
