@@ -20,7 +20,7 @@
 		ymaps.ready(init);
 	}
 
-	var selectService = function(){
+	var selectService = function(){		
 		if(!$(this).hasClass('active')){
 			$('.pick').removeClass('active');
 			$(this).addClass('active');
@@ -30,15 +30,20 @@
 	};
 
 	var backstepHandler = function(){
-		$('div[data-step="1"]').removeClass('hidden');
-		$('div[data-step="2"]').addClass('hidden');
+		$('#make-request').find('div[data-step="1"]').removeClass('hidden');
+		$('#make-request').find('div[data-step="2"]').addClass('hidden');
 	};
 
 	var nextstepHandler = function(){	
 		if($('.pick').hasClass('active')){
-			$('div[data-step="1"]').addClass('hidden');
-			$('div[data-step="2"]').removeClass('hidden');
+			$('#make-request').find('div[data-step="1"]').addClass('hidden');
+			$('#make-request').find('div[data-step="2"]').removeClass('hidden');
 		}
+	};
+
+	var order_anone = function(){		
+		var serv = $(this).parent().parent().attr('data-title');
+		$('#make-request-service').find('input[name="objects"]').attr('value', serv);
 	};
 
 	//обработчик выбора заказа услуги
@@ -58,11 +63,13 @@
 		});
 	};
 
-	$('.items-left ul li').on('click', handler);
+	$('.items-left ul li').on('click', handler);	
 	var pickBtn = document.getElementsByClassName('pick');
+	var order = document.getElementsByClassName('order-alone');
 	var nextBtn = document.getElementsByClassName('next-step')[0];
 	var backBtn = document.getElementsByClassName('back-btn')[0];
 	for(var i = 0; i < pickBtn.length; i++) pickBtn[i].onclick = selectService;
+	for(var i = 0; i < order.length; i++) order[i].onclick = order_anone;
 	backBtn.onclick = backstepHandler;
 	nextBtn.onclick = nextstepHandler;
 }());

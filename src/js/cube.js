@@ -207,7 +207,7 @@
         request = function(url){
             let path = isDemo ? "../src/pages/" + url + ".html" : "/request";
             $.ajax({
-                method: isDemo ? "GET" : "POST",
+                method: "GET",
                 url: path,
                 data: {action: url},
                 beforeSend: addLoader()
@@ -328,15 +328,19 @@
             });
         },
 
+        mail_btn_send = function(){
+            $(current).find('.gr1_1').animate({
+                scrollTop: $(current).find('.inner').height()
+            }, 800, function(){
+                $('form.call-back').find('input[type="text"]').focus();
+            });
+        },
+
         mail_btn_hover = function(){
             if(isMobile.any){
                 if($(this).hasClass('active')) $(this).removeClass('active');
                 else $(this).addClass('active');
             }
-        },
-
-        mail_csroll = function(){
-            
         };
 
     $(w).on('resize', ResizeWindow);
@@ -347,7 +351,7 @@
     $(w).on('hashchange', changeHash);
     $(w).on('load', loader);
     $(mail).on('click', mail_btn_hover);
-    $(mail_btn).on('click', mail_csroll);
+    $(mail).find('.btn-request').on('click', mail_btn_send);
 
     init();
 }());

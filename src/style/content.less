@@ -538,10 +538,20 @@
 							li{						    
 							    color: #172c42;
 							    font-size: 1.3rem;
-						        padding: .8rem 0 .8rem 1rem;
+						        padding: .8rem 0 .8rem 5rem;
 							    cursor: pointer;
 						        margin: .5rem 0;
 						        white-space: nowrap;
+						        position: relative;
+
+						        &:before{
+						    		content: '';
+						    		position: absolute;
+						    		width: 2rem;
+								    height: 2rem;
+								    left: 1rem;
+								    top: .5rem;
+						    	}
 
 						        &:first-child{
 						        	margin-top:0;
@@ -559,6 +569,19 @@
 							    &:hover:not(.active){
 						    	    background: #bee1ef;
 							    }
+
+							    &.kvartira{&:before{background: url(../src/img/icons/city.png) no-repeat; background-size: 100%;}}
+							    &.chastnydom{&:before{background: url(../src/img/icons/home-interface.png) no-repeat; background-size: 100%;}}
+							    &.obshepit{&:before{background: url(../src/img/icons/mcdonalds.png) no-repeat; background-size: 100%;}}
+							    &.automoika{&:before{background: url(../src/img/icons/car-wash.png) no-repeat; background-size: 100%;}}
+							    &.proizvodstvo{&:before{background: url(../src/img/icons/factory.png) no-repeat; background-size: 100%;}}
+							    &.office{&:before{background: url(../src/img/icons/printer.png) no-repeat; background-size: 100%;}}
+							    &.sklad{&:before{background: url(../src/img/icons/warehouse.png) no-repeat; background-size: 100%;}}
+							    &.cex{&:before{background: url(../src/img/icons/bank-building.png) no-repeat; background-size: 100%;}}
+							    &.Parniki{&:before{background: url(../src/img/icons/greenhouse.png) no-repeat; background-size: 100%;}}
+							    &.obshejity{&:before{background: url(../src/img/icons/double-bed-with-striped-headboard.png) no-repeat; background-size: 100%;}}
+							    &.gostinicy{&:before{background: url(../src/img/icons/hotel.png) no-repeat; background-size: 100%;}}
+							    &.magaziny{&:before{background: url(../src/img/icons/shop-store-frontal-building.png) no-repeat; background-size: 100%;}}
 							}
 						}
 					}
@@ -1067,15 +1090,92 @@
 	}
 	div[data-step="2"]{
 
-		.back-btn{
-			background: #28455d;
-		    width: 5rem;
-		    height: 2rem;
+		.objects, .subjects{
+			.title{
+				font-size: 1.5rem;
+			    font-family: GothamProLight;
+			    margin-top: 1rem;
+			    margin-bottom: .5rem;
+			}
+
+			select{
+				height: 3rem;
+			    width: 100%;
+			    border: 1px solid #29455d;
+			    outline: none;
+			    border-radius: 2px;
+		        font-size: 1.3rem;
+			    padding-left: .2rem;
+			    font-family: GothamProLight;
+			    cursor: pointer;
+			}
+		}
+
+		.inputs{
 		    display: flex;
+    		flex-direction: column;
+
+    		.title{
+				font-size: 1.5rem;
+			    font-family: GothamProLight;
+		        margin-top: .5rem;
+			}
+
+			input[type="text"], input[type="tel"], input[type="email"]{
+				height: 3rem;
+			    border: 1px solid #29455d;
+			    border-radius: 2px;
+			    padding-left: .5rem;
+			    font-size: 1.3rem;
+			    margin-top: 1rem;
+			    outline: none;
+			    cursor: pointer;
+		        font-weight: 400;
+    			font-family: GothamProLight;
+
+			    &:focus{
+			    	border-bottom: 4px solid #29455d;
+			    }
+			}
+
+			input[type="submit"]{
+			    padding: .6rem 2rem;
+			    color: #fff;
+			    font-family: GothamProLight;
+			    font-size: 1.5rem;
+			    background: #27445c;
+			    cursor: pointer;
+			    margin-top: 1rem;
+			    border: 0;
+			    border-bottom: 4px solid #6cb7ef;
+			    position: relative;
+			    outline: none;
+			    cursor: pointer;
+			}
+		}
+
+		.back-btn{
+		    padding: .6rem 3.8rem;
 		    color: #fff;
-		    align-items: center;
-		    justify-content: center;
-		    border-bottom: 4px solid #000;
+		    font-family: GothamProLight;
+		    font-size: 1.5rem;
+		    background: #27445c;
+		    cursor: pointer;
+		    margin-top: 2rem;
+		    border-bottom: 4px solid #6cb7ef;
+		    position: relative;
+
+		    &:after{
+		    	position: absolute;
+			    content: "";
+			    top: 10px;
+			    width: 1.75rem;
+    			height: 1.75rem;
+		        left: .5rem;
+    			transform: rotateZ(180deg);		    
+			    background: url(../src/img/icons/next-enable.png) no-repeat;
+		    	background-size: 100%;
+		    }
 		}
 
 	}
@@ -1138,10 +1238,57 @@ footer{
 				    font-family: GothamProLight;
 				    outline: none;
 			        background: #e1f0f5;
-			        color: #172c42;			        
+			        color: #172c42;
+			        position: relative;		        
+    			}
+
+    			span{
+    				position: relative;
+				    top: 3.3rem;
+				    left: .5rem;
+				    width: 1px;
+				    height: 1px;
+				    z-index: 99;
+
+				    &:before{
+				    	content: '';
+			    	    position: absolute;
+					    width: 32px;
+					    height: 32px;
+					    top: -1.8rem;
+				    }
+    			}
+
+    			.names{
+    				&:before{		    
+					    background: url(../src/img/icons/man-user.png) no-repeat;
+					    background-size: 100%;	
+				    }			    				    
+    			}
+
+    			.mailer{
+    				&:before{
+						background: url(../src/img/icons/contact.png) no-repeat;
+					    background-size: 100%;	
+				    }
+    			}
+
+    			.comment{
+    				&:before{
+	    				background: url(../src/img/icons/comment.png) no-repeat;
+					    background-size: 100%;	
+				    }
+    			}
+
+    			.cubmits{
+    				&:before{
+	    				background: url(../src/img/icons/send-mail.png) no-repeat;
+					    background-size: 100%;	
+				    }
     			}
 
     			input[type="text"], input[type="email"], textarea{
+    				padding-left: 3.5rem;
     				&:focus{
 			        	border-color: #81c4f7;
 			        }
@@ -1149,11 +1296,12 @@ footer{
 
     			textarea{
     				height: 5rem;
+    				padding-top: .5rem;
     			}
 
     			input[type="submit"]{
 				    cursor: pointer;
-				    background: #e1f0f5;
+				    background: #e1f0f5;				    
 				    color: #172c42;
 				    font-size: 1.5rem;
 				    line-height: 1.5rem;

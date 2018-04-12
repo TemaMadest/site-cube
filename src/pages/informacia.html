@@ -30,13 +30,19 @@
 			</div>
 		</div>
 		<div class="right">
-			<span>Свяжитесь с нами заполнив форму</span>
-			<form action="/">
-				<input type="text" placeholder="Ваше имя">
-				<input type="email" placeholder="Ваша почта">
-				<textarea placeholder="Ваш комментарий"></textarea>
-				<input type="submit" value="Отправить">
+			<span>Форма обратной связи. Свяжитесь с нами заполнив форму</span>
+			<form action="/" method="POST" class="call-back">
+			    <span class="names"></span>
+				<input type="text" placeholder="Ваше имя" id="af_name" name="name" value="" required>
+				<span class="mailer"></span>
+				<input type="email" placeholder="Ваше Почта" id="af_email" name="email" value="" required>
+				<span class="comment"></span>
+				<textarea placeholder="Ваш комментарий" id="af_comment" name="comment" value="" required></textarea>
+				<span class="cubmits"></span>
+				<input type="submit" value="Отправить">				
 			</form>
 		</div>
 	</div>
 </footer>
+
+<script src="src/js/content.js"></script>
