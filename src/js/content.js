@@ -72,4 +72,15 @@
 	for(var i = 0; i < order.length; i++) order[i].onclick = order_anone;
 	backBtn.onclick = backstepHandler;
 	nextBtn.onclick = nextstepHandler;
+	var locate = document.location.hostname;
+    var isDemo = locate == "localhost" || locate == "192.138.0.183";
+    if(isDemo){
+    	if(isMobile.any){
+    		$('.SalesWater').css({display: 'none'});
+    		$('.service').css({display: 'none'});
+    	}else{
+    		$('.SalesWaterMobile').css({display: 'none'});
+    		$('.service-mobile').css({display: 'none'});
+    	}
+    }
 }());

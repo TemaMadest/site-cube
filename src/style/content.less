@@ -108,7 +108,7 @@
 			.whenWeDescription{        
                 max-width: 100%;
                 padding: 2rem 1rem 1rem;
-   				background: #e6e6e6;
+   				background: #bee1ef;
 
 	    	    .title{
 	    	    	h2{
@@ -673,6 +673,123 @@
 			}
 		}
 
+
+
+		.SalesWater{
+		    margin-top: 5rem;
+			background: #f9f5f2;
+
+			.wrap-sales{
+				display: flex;
+
+				.preview{
+					width: 30%;
+    				padding-left: 3rem;
+
+					img{
+						width: 100%;
+					}
+				}
+
+				.present{
+					flex: 1;
+				    text-align: center;
+				    display: flex;
+				    flex-direction: column;
+				    background: linear-gradient(to right, #f9f5f2 , #59b2f6);
+
+				    h2{
+			    	    font-size: 2.5rem;
+					    line-height: 2.5rem;
+					    font-weight: 400;
+					    font-family: GothamProLight;
+				    }
+
+				    p.description{
+			    	    font-size: 1.3rem;
+				        margin: 0rem 10rem 1rem;
+					    line-height: 2rem;
+				    }
+
+				    .order-water{
+			    	    padding: .5rem 1rem;
+					    color: #fff;
+					    width: 200px;
+					    font-size: 1.2rem;
+					    background: #172c42;
+					    cursor: pointer;
+					    border-bottom: 4px solid #58b2f6;
+					    margin: 0 auto;
+					    margin-top: 1rem;
+
+					    &:hover{
+					    	background: #223d5a;
+					    }
+				    }
+				}
+			}
+		}
+
+
+
+
+
+		.SalesWaterMobile{
+			margin-top: 5rem;
+			background: #f9f5f2;
+			padding-bottom: 2rem;
+
+			.wrap-sales{
+				display: flex;
+				flex-direction: column;
+
+				.present{
+				    text-align: center;
+				    display: flex;
+				    flex-direction: column;
+
+				    h2{
+			    	    font-size: 2rem;
+					    line-height: 2.5rem;
+					    font-weight: 400;
+					    font-family: GothamProLight;
+				    }
+
+				    p.description{
+			    	    font-size: 1.3rem;				        
+					    line-height: 2rem;
+				    }
+				}
+
+
+				.preview{
+				    width: 90%;
+    				padding-left: 4rem;
+
+					img{
+						width: 100%;
+						display: block;
+					}
+				}
+
+				.order-water{
+	    	        padding: .8rem 1rem;
+				    color: #fff;
+				    width: 230px;
+				    font-size: 1.5rem;
+				    background: #172c42;
+				    cursor: pointer;
+				    border-bottom: 4px solid #58b2f6;
+				    margin: 1rem auto 0;
+				    text-align: center;
+			    }
+			}
+		}
+
+
+
+
+
 		.subject{
 			margin-top: 8rem;
 			display: none;
@@ -693,7 +810,6 @@
 				position: absolute;
 			    top: 14rem;
 			    display: flex;
-			    align-items: center;
 
 			    .item{
 		    	    flex: 1;
@@ -941,7 +1057,7 @@
 			flex-direction: column;
 
 			.item{
-				margin-top:1rem;
+				margin-top:3rem;
 
 				.item-wrap{
 					padding: 1rem;
@@ -1167,7 +1283,7 @@
 			    font-size: 1.3rem;
 			    margin-top: 1rem;
 			    outline: none;
-			    cursor: pointer;
+			    cursor: text;
 		        font-weight: 400;
     			font-family: GothamProLight;
 
@@ -1215,7 +1331,70 @@
 		    	background-size: 100%;
 		    }
 		}
+	}
 
+	.water-wars{
+	    .title{
+	    	font-size: 1.5rem;
+		    font-family: GothamProLight;
+		    margin-top: 1rem;
+		    margin-bottom: .5rem;
+	    }
+
+	    select{
+	    	height: 3rem;
+		    width: 100%;
+		    border: 1px solid #29455d;
+		    outline: 0;
+		    border-radius: 2px;
+		    font-size: 1.3rem;
+		    padding-left: .2rem;
+		    font-family: GothamProLight;
+		    cursor: pointer;
+	    }
+	}
+
+	.inputs{
+	    display: flex;
+		flex-direction: column;
+
+		.title{
+			font-size: 1.5rem;
+		    font-family: GothamProLight;
+	        margin-top: .5rem;
+		}
+
+		input[type="text"], input[type="tel"], input[type="email"]{
+			height: 3rem;
+		    border: 1px solid #29455d;
+		    border-radius: 2px;
+		    padding-left: .5rem;
+		    font-size: 1.3rem;
+		    margin-top: 1rem;
+		    outline: none;
+		    cursor: text;
+	        font-weight: 400;
+			font-family: GothamProLight;
+
+		    &:focus{
+		    	border-bottom: 4px solid #29455d;
+		    }
+		}
+
+		input[type="submit"]{
+		    padding: .6rem 2rem;
+		    color: #fff;
+		    font-family: GothamProLight;
+		    font-size: 1.5rem;
+		    background: #27445c;
+		    cursor: pointer;
+		    margin-top: 1rem;
+		    border: 0;
+		    border-bottom: 4px solid #6cb7ef;
+		    position: relative;
+		    outline: none;
+		    cursor: pointer;
+		}
 	}
 }
 
@@ -1260,6 +1439,7 @@ footer{
     			font-size: 1.3rem;
     			display: block;
     			text-align: center;
+    			line-height: 2rem;
     			width: 100%;
     		}
 

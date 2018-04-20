@@ -302,6 +302,40 @@
 
 
 
+
+		<div class="SalesWater">
+			<div class="wrap-sales">
+				<div class="preview">
+					<img src="/src/img/sales.png">
+				</div>
+				<div class="present">
+					<h2>В продаже жидкости дезинфекции</h2>
+					<p class="description">Здесь будет краткое описание жидкостей или может какой выбор есть на складе</p>
+					<div class="btn order-water" data-src="#sale-water" data-fancybox fancybox-modal="true">Заказать</div>
+				</div>
+			</div>
+		</div>
+
+
+
+		<div class="SalesWaterMobile">
+			<div class="wrap-sales">
+				<div class="present">
+					<h2>В продаже жидкости дезинфекции</h2>
+					<p class="description">Здесь будет краткое описание жидкостей или может какой выбор есть на складе</p>					
+				</div>
+				<div class="preview">
+					<img src="/src/img/sales.png">
+				</div>
+				<div class="btn order-water" data-src="#sale-water" data-fancybox fancybox-modal="true">Заказать</div>
+			</div>
+		</div>
+
+
+
+
+
+
 		<div class="whyWe">
 			<div class="title">
 				<h2>Как мы работаем:</h2>
@@ -419,6 +453,28 @@
 							<input type="tel" placeholder="Ваш телефон" name="tel" required id="af_tel" value="">
 							<input type="submit" value="Заказать">
 						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="hidden" id="sale-water">
+			<div class="make-request-form">
+				<form action="/" method="POST">
+					<input type="hidden" name="service" id="af_service" value="">
+					<div class="water-wars">
+						<div class="title">Выберите жидкость:</div>
+						<select class="water" name="water" id="af_water" value="">
+							<option>Комбидез</option>
+							<option>Инцидин Ликвид</option>
+							<option>Бианол</option>
+						</select>
+					</div>
+					<div class="inputs">
+						<div class="title">Заполните поля:</div>
+						<input type="email" placeholder="Ваша почта" name="email" required id="af_email" value="">
+						<input type="text" placeholder="Ваше имя" name="name" required id="af_name" value="">
+						<input type="tel" placeholder="Ваш телефон" name="tel" required id="af_tel" value="">
+						<input type="submit" value="Заказать">
 					</div>
 				</form>
 			</div>
