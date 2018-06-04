@@ -826,6 +826,7 @@
     					font-size: 1.2rem;
 					    margin: 0 1rem;
 					    margin-top: 2rem;
+					    color: #000;
     				}
 			    }
 			}
@@ -943,9 +944,12 @@
 	}
 
 	p{
-		line-height: 2rem;
-		text-indent: 4rem;
-		position: relative;
+	    text-indent: 4rem;
+	    position: relative;
+	    line-height: 2rem;
+	    font-size: 1.3rem;
+	    margin: 1.5rem 0 0;
+	    color: #000;
 
 		&:before{
 			content:'';
@@ -1029,8 +1033,75 @@
 		    font-weight: 400;
 		    font-family: GothamProLight;
 		    text-align: center;
+	        color: #000;
 		}
 
+		h2{
+		    font-size: 2rem;
+		    font-weight: 400;
+		    font-family: GothamProLight;
+		    line-height: 1.5rem;
+		    margin: 1rem 0;
+		    margin-top: 3rem;
+	        color: #000;
+		}
+
+		p,span{
+		    line-height: 2rem;
+		    font-size: 1.3rem;
+		    margin: 1.5rem 0 0;
+		    color: #000;
+		}
+
+		ul{
+		    padding-left: 1.5rem;
+			li{
+				line-height: 2rem;
+			    font-size: 1.3rem;
+			    margin: 1.5rem 0 0;
+			    color: #000;
+			}
+		}
+
+		.deratization-list{
+			display: flex;
+		    flex-wrap: wrap;
+		    margin-top: 2rem;
+
+			div{
+			    display: flex;
+    			flex-direction: column;
+    			align-items: center;
+    			width: 25%;
+    			margin-top: 1rem;
+
+    			img{
+    				width: 40%;
+    			}
+			}
+
+			&.row3{
+				div{
+					flex:1;
+				}
+			}
+		}
+
+		.order-service{
+		    padding: .8rem 1rem;
+		    color: #fff;
+		    text-align: center;
+		    width: 300px;
+		    font-size: 1.2rem;
+		    background: #172c42;
+		    cursor: pointer;
+		    border-bottom: 4px solid #58b2f6;
+		    margin: 2rem auto 0;
+
+		    &:hover{
+		    	background: #223d5a;
+		    }
+		}
 	}
 }
 
